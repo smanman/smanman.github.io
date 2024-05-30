@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>小肥龙吃大冰淇淋</title>
-  <icon>https://lvxueyangtiger.github.io/icon.png</icon>
+  <icon>https://andice-cream.github.io/icon.png</icon>
   <subtitle>有些梦想虽然遥不可及，但不是不可能实现。只要我足够的强。</subtitle>
-  <link href="https://lvxueyangtiger.github.io/atom.xml" rel="self"/>
+  <link href="https://andice-cream.github.io/atom.xml" rel="self"/>
   
-  <link href="https://lvxueyangtiger.github.io/"/>
-  <updated>2022-11-27T09:16:42.646Z</updated>
-  <id>https://lvxueyangtiger.github.io/</id>
+  <link href="https://andice-cream.github.io/"/>
+  <updated>2022-11-27T09:16:41.685Z</updated>
+  <id>https://andice-cream.github.io/</id>
   
   <author>
     <name>小肥龙吃大冰淇淋</name>
@@ -17,592 +17,546 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>tomcat优化启动速度</title>
-    <link href="https://lvxueyangtiger.github.io/post/aca3d52d.html"/>
-    <id>https://lvxueyangtiger.github.io/post/aca3d52d.html</id>
-    <published>2024-05-30T01:10:36.557Z</published>
-    <updated>2022-11-27T09:16:42.646Z</updated>
+    <title>Springboot自定义启动器</title>
+    <link href="https://andice-cream.github.io/post/1e36501a.html"/>
+    <id>https://andice-cream.github.io/post/1e36501a.html</id>
+    <published>2024-05-30T01:10:36.502Z</published>
+    <updated>2022-11-27T09:16:41.685Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;清理你的-tomcat&quot;&gt;&lt;a href=&quot;#清理你的-tomcat&quot; class=&quot;headerlink&quot; title=&quot;清理你的 tomcat&quot;&gt;&lt;/a&gt;清理你的 tomcat&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;1. 清理不必要的 Web</summary>
+    <summary type="html">&lt;h3 id=&quot;什么是Stater&quot;&gt;&lt;a href=&quot;#什么是Stater&quot; class=&quot;headerlink&quot; title=&quot;什么是Stater&quot;&gt;&lt;/a&gt;什么是Stater&lt;/h3&gt;&lt;p&gt; Spring Boot</summary>
         
       
     
     
     
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="java学习" scheme="https://andice-cream.github.io/categories/java%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="深入tomcat" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    <category term="Springboot" scheme="https://andice-cream.github.io/categories/java%E5%AD%A6%E4%B9%A0/Springboot/"/>
     
     
-    <category term="tomcat" scheme="https://lvxueyangtiger.github.io/tags/tomcat/"/>
-    
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="Springboot" scheme="https://andice-cream.github.io/tags/Springboot/"/>
     
   </entry>
   
   <entry>
-    <title>手写迷你版tomcat</title>
-    <link href="https://lvxueyangtiger.github.io/post/9a650b5.html"/>
-    <id>https://lvxueyangtiger.github.io/post/9a650b5.html</id>
-    <published>2024-05-30T01:10:36.556Z</published>
-    <updated>2022-01-12T13:34:27.737Z</updated>
+    <title>Springboot简介</title>
+    <link href="https://andice-cream.github.io/post/8c0643da.html"/>
+    <id>https://andice-cream.github.io/post/8c0643da.html</id>
+    <published>2024-05-30T01:10:36.501Z</published>
+    <updated>2022-11-27T09:16:41.643Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;Minicat&quot;&gt;&lt;a href=&quot;#Minicat&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h3 id=&quot;Spring-Boot概述&quot;&gt;&lt;a href=&quot;#Spring-Boot概述&quot; class=&quot;headerlink&quot; title=&quot;Spring Boot概述&quot;&gt;&lt;/a&gt;Spring Boot概述&lt;/h3&gt;&lt;p&gt; Spring</summary>
         
       
     
     
     
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="java学习" scheme="https://andice-cream.github.io/categories/java%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="深入tomcat" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    <category term="Springboot" scheme="https://andice-cream.github.io/categories/java%E5%AD%A6%E4%B9%A0/Springboot/"/>
     
     
-    <category term="tomcat" scheme="https://lvxueyangtiger.github.io/tags/tomcat/"/>
-    
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="Springboot" scheme="https://andice-cream.github.io/tags/Springboot/"/>
     
   </entry>
   
   <entry>
-    <title>tomcat集群通信</title>
-    <link href="https://lvxueyangtiger.github.io/post/cc823b59.html"/>
-    <id>https://lvxueyangtiger.github.io/post/cc823b59.html</id>
-    <published>2024-05-30T01:10:36.555Z</published>
-    <updated>2022-11-27T09:16:42.634Z</updated>
+    <title>Springboot整合模板引擎</title>
+    <link href="https://andice-cream.github.io/post/aade4ca7.html"/>
+    <id>https://andice-cream.github.io/post/aade4ca7.html</id>
+    <published>2024-05-30T01:10:36.500Z</published>
+    <updated>2022-11-27T09:16:41.601Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;为了支持水平扩展和高可用，tomcat 提供了集群部署的能力，但与此同时也带来了分布式系统的一个通用问题，那就是如何在集群中的多个节点之间保持数据的一致性，比如会话（Session）信息。&lt;/p&gt;
-&lt;p&gt;要实现这一点，基本上有两种方式，一种是把所有 Session</summary>
+    <summary type="html">&lt;h3 id=&quot;整合Freemarker&quot;&gt;&lt;a href=&quot;#整合Freemarker&quot; class=&quot;headerlink&quot; title=&quot;整合Freemarker&quot;&gt;&lt;/a&gt;整合Freemarker&lt;/h3&gt;&lt;h4 id=&quot;Freemarker简介&quot;&gt;&lt;a</summary>
         
       
     
     
     
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="java学习" scheme="https://andice-cream.github.io/categories/java%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="深入tomcat" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    <category term="Springboot" scheme="https://andice-cream.github.io/categories/java%E5%AD%A6%E4%B9%A0/Springboot/"/>
     
     
-    <category term="tomcat" scheme="https://lvxueyangtiger.github.io/tags/tomcat/"/>
-    
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="Springboot" scheme="https://andice-cream.github.io/tags/Springboot/"/>
     
   </entry>
   
   <entry>
-    <title>tomcat连接器</title>
-    <link href="https://lvxueyangtiger.github.io/post/ab471235.html"/>
-    <id>https://lvxueyangtiger.github.io/post/ab471235.html</id>
-    <published>2024-05-30T01:10:36.554Z</published>
-    <updated>2022-11-27T09:16:42.625Z</updated>
+    <title>Springboot整合Swagger2</title>
+    <link href="https://andice-cream.github.io/post/279220d3.html"/>
+    <id>https://andice-cream.github.io/post/279220d3.html</id>
+    <published>2024-05-30T01:10:36.499Z</published>
+    <updated>2022-11-27T09:16:41.522Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;tomcat-总体架构&quot;&gt;&lt;a href=&quot;#tomcat-总体架构&quot; class=&quot;headerlink&quot; title=&quot;tomcat 总体架构&quot;&gt;&lt;/a&gt;tomcat 总体架构&lt;/h2&gt;&lt;h3 id=&quot;tomcat-要实现-2-个核心功能&quot;&gt;&lt;a</summary>
+    <summary type="html">&lt;h3 id=&quot;整合-Swagger2&quot;&gt;&lt;a href=&quot;#整合-Swagger2&quot; class=&quot;headerlink&quot; title=&quot;整合 Swagger2&quot;&gt;&lt;/a&gt;整合 Swagger2&lt;/h3&gt;&lt;h4 id=&quot;Swagger2简介&quot;&gt;&lt;a</summary>
         
       
     
     
     
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="java学习" scheme="https://andice-cream.github.io/categories/java%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="深入tomcat" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    <category term="Springboot" scheme="https://andice-cream.github.io/categories/java%E5%AD%A6%E4%B9%A0/Springboot/"/>
     
     
-    <category term="tomcat" scheme="https://lvxueyangtiger.github.io/tags/tomcat/"/>
-    
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="Springboot" scheme="https://andice-cream.github.io/tags/Springboot/"/>
     
   </entry>
   
   <entry>
-    <title>tomcat请求流程</title>
-    <link href="https://lvxueyangtiger.github.io/post/e9620a43.html"/>
-    <id>https://lvxueyangtiger.github.io/post/e9620a43.html</id>
-    <published>2024-05-30T01:10:36.552Z</published>
-    <updated>2022-11-27T09:16:42.615Z</updated>
+    <title>Springboot整合web组件</title>
+    <link href="https://andice-cream.github.io/post/103f5083.html"/>
+    <id>https://andice-cream.github.io/post/103f5083.html</id>
+    <published>2024-05-30T01:10:36.499Z</published>
+    <updated>2022-11-27T09:16:41.563Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;tomcat请求流程&quot;&gt;&lt;a href=&quot;#tomcat请求流程&quot; class=&quot;headerlink&quot; title=&quot;tomcat请求流程&quot;&gt;&lt;/a&gt;tomcat请求流程&lt;/h2&gt;&lt;p&gt;&lt;img</summary>
+    <summary type="html">&lt;h3 id=&quot;整合Servlet、Filter、Listener&quot;&gt;&lt;a href=&quot;#整合Servlet、Filter、Listener&quot; class=&quot;headerlink&quot;</summary>
         
       
     
     
     
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="java学习" scheme="https://andice-cream.github.io/categories/java%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="深入tomcat" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    <category term="Springboot" scheme="https://andice-cream.github.io/categories/java%E5%AD%A6%E4%B9%A0/Springboot/"/>
     
     
-    <category term="tomcat" scheme="https://lvxueyangtiger.github.io/tags/tomcat/"/>
-    
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="Springboot" scheme="https://andice-cream.github.io/tags/Springboot/"/>
     
   </entry>
   
   <entry>
-    <title>tomcat类加载和类加载器</title>
-    <link href="https://lvxueyangtiger.github.io/post/98931fb8.html"/>
-    <id>https://lvxueyangtiger.github.io/post/98931fb8.html</id>
-    <published>2024-05-30T01:10:36.552Z</published>
-    <updated>2022-11-27T09:16:42.604Z</updated>
+    <title>Springboot整合Redis</title>
+    <link href="https://andice-cream.github.io/post/c67fec4a.html"/>
+    <id>https://andice-cream.github.io/post/c67fec4a.html</id>
+    <published>2024-05-30T01:10:36.498Z</published>
+    <updated>2022-11-27T09:16:41.483Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;tomcat类加载与类加载器&quot;&gt;&lt;a href=&quot;#tomcat类加载与类加载器&quot; class=&quot;headerlink&quot; title=&quot;tomcat类加载与类加载器&quot;&gt;&lt;/a&gt;tomcat类加载与类加载器&lt;/h2&gt;&lt;p&gt;&lt;img</summary>
+    <summary type="html">&lt;h3 id=&quot;整合Redis&quot;&gt;&lt;a href=&quot;#整合Redis&quot; class=&quot;headerlink&quot; title=&quot;整合Redis&quot;&gt;&lt;/a&gt;整合Redis&lt;/h3&gt;&lt;p&gt; 经过 Spring Boot 的整合封装与自动化配置，在 Spring Boot</summary>
         
       
     
     
     
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="java学习" scheme="https://andice-cream.github.io/categories/java%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="深入tomcat" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    <category term="Springboot" scheme="https://andice-cream.github.io/categories/java%E5%AD%A6%E4%B9%A0/Springboot/"/>
     
     
-    <category term="tomcat" scheme="https://lvxueyangtiger.github.io/tags/tomcat/"/>
-    
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="Springboot" scheme="https://andice-cream.github.io/tags/Springboot/"/>
     
   </entry>
   
   <entry>
-    <title>tomcat日志框架以及实战</title>
-    <link href="https://lvxueyangtiger.github.io/post/ddf9225e.html"/>
-    <id>https://lvxueyangtiger.github.io/post/ddf9225e.html</id>
-    <published>2024-05-30T01:10:36.550Z</published>
-    <updated>2022-11-27T09:16:42.584Z</updated>
+    <title>Springboot整合Mybatis</title>
+    <link href="https://andice-cream.github.io/post/35f9c839.html"/>
+    <id>https://andice-cream.github.io/post/35f9c839.html</id>
+    <published>2024-05-30T01:10:36.497Z</published>
+    <updated>2022-02-01T13:21:33.629Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th&gt;handlers = 1catalina.org.apache.juli.AsyncFileHandler, 2localhost.org.apache.juli.AsyncFileHandler,</summary>
+    <summary type="html">&lt;h3 id=&quot;整合-MyBatis&quot;&gt;&lt;a href=&quot;#整合-MyBatis&quot; class=&quot;headerlink&quot; title=&quot;整合 MyBatis&quot;&gt;&lt;/a&gt;整合 MyBatis&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;Spring Boot 中最简单的数据持久化方案</summary>
         
       
     
     
     
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="java学习" scheme="https://andice-cream.github.io/categories/java%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="深入tomcat" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    <category term="Springboot" scheme="https://andice-cream.github.io/categories/java%E5%AD%A6%E4%B9%A0/Springboot/"/>
     
     
-    <category term="tomcat" scheme="https://lvxueyangtiger.github.io/tags/tomcat/"/>
-    
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="Springboot" scheme="https://andice-cream.github.io/tags/Springboot/"/>
     
   </entry>
   
   <entry>
-    <title>tomcat管道模式</title>
-    <link href="https://lvxueyangtiger.github.io/post/f9108ba4.html"/>
-    <id>https://lvxueyangtiger.github.io/post/f9108ba4.html</id>
-    <published>2024-05-30T01:10:36.550Z</published>
-    <updated>2022-11-27T09:16:42.595Z</updated>
+    <title>Springboot整合JPA</title>
+    <link href="https://andice-cream.github.io/post/770d4cb8.html"/>
+    <id>https://andice-cream.github.io/post/770d4cb8.html</id>
+    <published>2024-05-30T01:10:36.496Z</published>
+    <updated>2022-11-27T09:16:41.400Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;tomcat管道模式&quot;&gt;&lt;a href=&quot;#tomcat管道模式&quot; class=&quot;headerlink&quot; title=&quot;tomcat管道模式&quot;&gt;&lt;/a&gt;tomcat管道模式&lt;/h2&gt;&lt;p&gt;&lt;img</summary>
+    <summary type="html">&lt;h3 id=&quot;JPA-简介&quot;&gt;&lt;a href=&quot;#JPA-简介&quot; class=&quot;headerlink&quot; title=&quot;JPA 简介&quot;&gt;&lt;/a&gt;JPA 简介&lt;/h3&gt;&lt;h4 id=&quot;JPA-是什么&quot;&gt;&lt;a href=&quot;#JPA-是什么&quot; class=&quot;headerlink&quot;</summary>
         
       
     
     
     
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="java学习" scheme="https://andice-cream.github.io/categories/java%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="深入tomcat" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    <category term="Springboot" scheme="https://andice-cream.github.io/categories/java%E5%AD%A6%E4%B9%A0/Springboot/"/>
     
     
-    <category term="tomcat" scheme="https://lvxueyangtiger.github.io/tags/tomcat/"/>
-    
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="Springboot" scheme="https://andice-cream.github.io/tags/Springboot/"/>
     
   </entry>
   
   <entry>
-    <title>tomcat生命周期</title>
-    <link href="https://lvxueyangtiger.github.io/post/9d3ac705.html"/>
-    <id>https://lvxueyangtiger.github.io/post/9d3ac705.html</id>
-    <published>2024-05-30T01:10:36.549Z</published>
-    <updated>2022-11-27T09:16:42.574Z</updated>
+    <title>Springboot整合MongoDB</title>
+    <link href="https://andice-cream.github.io/post/616a8d26.html"/>
+    <id>https://andice-cream.github.io/post/616a8d26.html</id>
+    <published>2024-05-30T01:10:36.496Z</published>
+    <updated>2022-11-27T09:16:41.442Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;tomcat生命周期管理&quot;&gt;&lt;a href=&quot;#tomcat生命周期管理&quot; class=&quot;headerlink&quot; title=&quot;tomcat生命周期管理&quot;&gt;&lt;/a&gt;tomcat生命周期管理&lt;/h2&gt;&lt;p&gt;&lt;img</summary>
+    <summary type="html">&lt;h3 id=&quot;MongoDB简介&quot;&gt;&lt;a href=&quot;#MongoDB简介&quot; class=&quot;headerlink&quot; title=&quot;MongoDB简介&quot;&gt;&lt;/a&gt;MongoDB简介&lt;/h3&gt;&lt;p&gt;</summary>
         
       
     
     
     
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="java学习" scheme="https://andice-cream.github.io/categories/java%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="深入tomcat" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    <category term="Springboot" scheme="https://andice-cream.github.io/categories/java%E5%AD%A6%E4%B9%A0/Springboot/"/>
     
     
-    <category term="tomcat" scheme="https://lvxueyangtiger.github.io/tags/tomcat/"/>
-    
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="Springboot" scheme="https://andice-cream.github.io/tags/Springboot/"/>
     
   </entry>
   
   <entry>
-    <title>tomcat源码安装</title>
-    <link href="https://lvxueyangtiger.github.io/post/bff1d935.html"/>
-    <id>https://lvxueyangtiger.github.io/post/bff1d935.html</id>
-    <published>2024-05-30T01:10:36.548Z</published>
-    <updated>2022-11-27T09:16:42.563Z</updated>
+    <title>Springboot整合JDBCTemplate</title>
+    <link href="https://andice-cream.github.io/post/5446c04.html"/>
+    <id>https://andice-cream.github.io/post/5446c04.html</id>
+    <published>2024-05-30T01:10:36.495Z</published>
+    <updated>2022-02-01T13:21:33.628Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;tomcat源码安装&quot;&gt;&lt;a href=&quot;#tomcat源码安装&quot; class=&quot;headerlink&quot; title=&quot;tomcat源码安装&quot;&gt;&lt;/a&gt;tomcat源码安装&lt;/h2&gt;&lt;p&gt;&lt;img</summary>
+    <summary type="html">&lt;h3 id=&quot;整合-JdbcTemplate&quot;&gt;&lt;a href=&quot;#整合-JdbcTemplate&quot; class=&quot;headerlink&quot; title=&quot;整合 JdbcTemplate&quot;&gt;&lt;/a&gt;整合 JdbcTemplate&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;在</summary>
         
       
     
     
     
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="java学习" scheme="https://andice-cream.github.io/categories/java%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="深入tomcat" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    <category term="Springboot" scheme="https://andice-cream.github.io/categories/java%E5%AD%A6%E4%B9%A0/Springboot/"/>
     
     
-    <category term="tomcat" scheme="https://lvxueyangtiger.github.io/tags/tomcat/"/>
-    
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="Springboot" scheme="https://andice-cream.github.io/tags/Springboot/"/>
     
   </entry>
   
   <entry>
-    <title>tomcat对象池</title>
-    <link href="https://lvxueyangtiger.github.io/post/eb7082ea.html"/>
-    <id>https://lvxueyangtiger.github.io/post/eb7082ea.html</id>
-    <published>2024-05-30T01:10:36.547Z</published>
-    <updated>2022-11-27T09:16:42.529Z</updated>
+    <title>Springboot整合JAX-RS简介</title>
+    <link href="https://andice-cream.github.io/post/248bc72d.html"/>
+    <id>https://andice-cream.github.io/post/248bc72d.html</id>
+    <published>2024-05-30T01:10:36.494Z</published>
+    <updated>2022-02-01T13:21:33.624Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;Java 对象，特别是一个比较大、比较复杂的 Java 对象，它们的创建、初始化和 GC 都需要耗费 CPU 和内存资源，为了减少这些开销，tomcat 和 Jetty 都使用了对象池技术。所谓的对象池技术，就是说一个 Java</summary>
+    <summary type="html">&lt;h3 id=&quot;JAX-RS简介&quot;&gt;&lt;a href=&quot;#JAX-RS简介&quot; class=&quot;headerlink&quot; title=&quot;JAX-RS简介&quot;&gt;&lt;/a&gt;JAX-RS简介&lt;/h3&gt;&lt;h4 id=&quot;什么是JAX-RS&quot;&gt;&lt;a href=&quot;#什么是JAX-RS&quot;</summary>
         
       
     
     
     
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="java学习" scheme="https://andice-cream.github.io/categories/java%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="深入tomcat" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    <category term="Springboot" scheme="https://andice-cream.github.io/categories/java%E5%AD%A6%E4%B9%A0/Springboot/"/>
     
     
-    <category term="tomcat" scheme="https://lvxueyangtiger.github.io/tags/tomcat/"/>
-    
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="Springboot" scheme="https://andice-cream.github.io/tags/Springboot/"/>
     
   </entry>
   
   <entry>
-    <title>tomcat性能优化</title>
-    <link href="https://lvxueyangtiger.github.io/post/9f3bfbf3.html"/>
-    <id>https://lvxueyangtiger.github.io/post/9f3bfbf3.html</id>
-    <published>2024-05-30T01:10:36.547Z</published>
-    <updated>2022-11-27T09:16:42.549Z</updated>
+    <title>Springboot整合druid</title>
+    <link href="https://andice-cream.github.io/post/bbe782ca.html"/>
+    <id>https://andice-cream.github.io/post/bbe782ca.html</id>
+    <published>2024-05-30T01:10:36.493Z</published>
+    <updated>2022-11-27T09:16:41.356Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;tomcat性能优化&quot;&gt;&lt;a href=&quot;#tomcat性能优化&quot; class=&quot;headerlink&quot; title=&quot;tomcat性能优化&quot;&gt;&lt;/a&gt;tomcat性能优化&lt;/h3&gt;&lt;p&gt;tomcat</summary>
+    <summary type="html">&lt;h3 id=&quot;springboot整合druid&quot;&gt;&lt;a href=&quot;#springboot整合druid&quot; class=&quot;headerlink&quot;</summary>
         
       
     
     
     
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="java学习" scheme="https://andice-cream.github.io/categories/java%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="深入tomcat" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    <category term="Springboot" scheme="https://andice-cream.github.io/categories/java%E5%AD%A6%E4%B9%A0/Springboot/"/>
     
     
-    <category term="tomcat" scheme="https://lvxueyangtiger.github.io/tags/tomcat/"/>
-    
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="Springboot" scheme="https://andice-cream.github.io/tags/Springboot/"/>
     
   </entry>
   
   <entry>
-    <title>tomcat对https的支持</title>
-    <link href="https://lvxueyangtiger.github.io/post/7767ee9f.html"/>
-    <id>https://lvxueyangtiger.github.io/post/7767ee9f.html</id>
-    <published>2024-05-30T01:10:36.546Z</published>
-    <updated>2022-11-27T09:16:42.519Z</updated>
+    <title>Springboot工程搭建</title>
+    <link href="https://andice-cream.github.io/post/a68b86fe.html"/>
+    <id>https://andice-cream.github.io/post/a68b86fe.html</id>
+    <published>2024-05-30T01:10:36.492Z</published>
+    <updated>2022-11-27T09:16:41.308Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt; &lt;strong&gt;Https工作原理&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://note-1259153703.cos.ap-nanjing.myqcloud.com/images/202201122053825.png&quot;</summary>
+    <summary type="html">&lt;h3 id=&quot;使用idea搭建SpringBoot&quot;&gt;&lt;a href=&quot;#使用idea搭建SpringBoot&quot; class=&quot;headerlink&quot; title=&quot;使用idea搭建SpringBoot&quot;&gt;&lt;/a&gt;使用idea搭建SpringBoot&lt;/h3&gt;&lt;h4</summary>
         
       
     
     
     
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="java学习" scheme="https://andice-cream.github.io/categories/java%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="深入tomcat" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    <category term="Springboot" scheme="https://andice-cream.github.io/categories/java%E5%AD%A6%E4%B9%A0/Springboot/"/>
     
     
-    <category term="tomcat" scheme="https://lvxueyangtiger.github.io/tags/tomcat/"/>
-    
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="Springboot" scheme="https://andice-cream.github.io/tags/Springboot/"/>
     
   </entry>
   
   <entry>
-    <title>tomcat扩展java线程池</title>
-    <link href="https://lvxueyangtiger.github.io/post/fdc58f0b.html"/>
-    <id>https://lvxueyangtiger.github.io/post/fdc58f0b.html</id>
-    <published>2024-05-30T01:10:36.543Z</published>
-    <updated>2022-01-12T13:34:27.705Z</updated>
+    <title>Springboot Actuator</title>
+    <link href="https://andice-cream.github.io/post/461731c.html"/>
+    <id>https://andice-cream.github.io/post/461731c.html</id>
+    <published>2024-05-30T01:10:36.485Z</published>
+    <updated>2022-11-27T09:16:40.858Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;在开发中我们经常会碰到“池”的概念，比如数据库连接池、内存池、线程池、常量池等。为什么需要“池”呢？程序运行的本质，就是通过使用系统资源（CPU、内存、网络、磁盘等）来完成信息的处理，比如在 JVM 中创建一个对象实例需要消耗 CPU</summary>
+    <summary type="html">&lt;h3 id=&quot;什么是Actuator&quot;&gt;&lt;a href=&quot;#什么是Actuator&quot; class=&quot;headerlink&quot;</summary>
         
       
     
     
     
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="java学习" scheme="https://andice-cream.github.io/categories/java%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="深入tomcat" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    <category term="Springboot" scheme="https://andice-cream.github.io/categories/java%E5%AD%A6%E4%B9%A0/Springboot/"/>
     
     
-    <category term="tomcat" scheme="https://lvxueyangtiger.github.io/tags/tomcat/"/>
-    
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="Springboot" scheme="https://andice-cream.github.io/tags/Springboot/"/>
     
   </entry>
   
   <entry>
-    <title>tomcat之websocket</title>
-    <link href="https://lvxueyangtiger.github.io/post/cd1c6ea1.html"/>
-    <id>https://lvxueyangtiger.github.io/post/cd1c6ea1.html</id>
-    <published>2024-05-30T01:10:36.543Z</published>
-    <updated>2022-11-27T09:16:42.498Z</updated>
+    <title>Redis事件驱动框架和执行模型模块</title>
+    <link href="https://andice-cream.github.io/post/f596c2de.html"/>
+    <id>https://andice-cream.github.io/post/f596c2de.html</id>
+    <published>2024-05-30T01:10:36.463Z</published>
+    <updated>2022-11-27T09:16:43.843Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;我们知道 HTTP 协议是“请求 - 响应”模式，浏览器必须先发请求给服务器，服务器才会响应这个请求。也就是说，服务器不会主动发送数据给浏览器。&lt;/p&gt;
-&lt;p&gt;Ajax 本质上还是轮询，而 Comet 是在 HTTP 长连接的基础上做了一些</summary>
+    <summary type="html">&lt;h1 id=&quot;Redisserver启动后会做哪些操作&quot;&gt;&lt;a href=&quot;#Redisserver启动后会做哪些操作&quot; class=&quot;headerlink&quot;</summary>
         
       
     
     
     
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
-    <category term="深入tomcat" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    <category term="Redis源码" scheme="https://andice-cream.github.io/categories/Redis%E6%BA%90%E7%A0%81/"/>
     
     
-    <category term="tomcat" scheme="https://lvxueyangtiger.github.io/tags/tomcat/"/>
+    <category term="Redis源码" scheme="https://andice-cream.github.io/tags/Redis%E6%BA%90%E7%A0%81/"/>
     
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="c源码" scheme="https://andice-cream.github.io/tags/c%E6%BA%90%E7%A0%81/"/>
     
   </entry>
   
   <entry>
-    <title>tomcat实现热部署和热加载</title>
-    <link href="https://lvxueyangtiger.github.io/post/62473e51.html"/>
-    <id>https://lvxueyangtiger.github.io/post/62473e51.html</id>
-    <published>2024-05-30T01:10:36.542Z</published>
-    <updated>2022-01-12T13:34:27.691Z</updated>
+    <title>Redis源码之数据结构</title>
+    <link href="https://andice-cream.github.io/post/6364a1dc.html"/>
+    <id>https://andice-cream.github.io/post/6364a1dc.html</id>
+    <published>2024-05-30T01:10:36.460Z</published>
+    <updated>2022-11-27T09:16:40.033Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;今天我们首先来看热部署和热加载。要在运行的过程中升级 Web 应用，如果你不想重启系统，实现的方式有两种：热加载和热部署。&lt;/p&gt;
-&lt;p&gt;那如何实现热部署和热加载呢？它们跟类加载机制有关，具体来说就是：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;热加载的实现方式是 Web</summary>
+    <summary type="html">&lt;h1 id=&quot;Redis字符串的实现&quot;&gt;&lt;a href=&quot;#Redis字符串的实现&quot; class=&quot;headerlink&quot; title=&quot;Redis字符串的实现&quot;&gt;&lt;/a&gt;Redis字符串的实现&lt;/h1&gt;&lt;h2 id=&quot;实现字符串的要求&quot;&gt;&lt;a</summary>
         
       
     
     
     
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
-    <category term="深入tomcat" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    <category term="Redis源码" scheme="https://andice-cream.github.io/categories/Redis%E6%BA%90%E7%A0%81/"/>
     
     
-    <category term="tomcat" scheme="https://lvxueyangtiger.github.io/tags/tomcat/"/>
+    <category term="Redis源码" scheme="https://andice-cream.github.io/tags/Redis%E6%BA%90%E7%A0%81/"/>
     
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="c源码" scheme="https://andice-cream.github.io/tags/c%E6%BA%90%E7%A0%81/"/>
     
   </entry>
   
   <entry>
-    <title>tomcat基本使用</title>
-    <link href="https://lvxueyangtiger.github.io/post/eb709392.html"/>
-    <id>https://lvxueyangtiger.github.io/post/eb709392.html</id>
-    <published>2024-05-30T01:10:36.541Z</published>
-    <updated>2022-11-27T09:16:42.486Z</updated>
+    <title>Redis源码之导读</title>
+    <link href="https://andice-cream.github.io/post/5c43006d.html"/>
+    <id>https://andice-cream.github.io/post/5c43006d.html</id>
+    <published>2024-05-30T01:10:36.459Z</published>
+    <updated>2022-11-27T09:16:40.015Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;tomcat基本使用&quot;&gt;&lt;a href=&quot;#tomcat基本使用&quot; class=&quot;headerlink&quot; title=&quot;tomcat基本使用&quot;&gt;&lt;/a&gt;tomcat基本使用&lt;/h2&gt;&lt;p&gt;&lt;img</summary>
+    <summary type="html">&lt;h1 id=&quot;导读&quot;&gt;&lt;a href=&quot;#导读&quot; class=&quot;headerlink&quot; title=&quot;导读&quot;&gt;&lt;/a&gt;导读&lt;/h1&gt;&lt;h2 id=&quot;Redis源码的整体架构&quot;&gt;&lt;a href=&quot;#Redis源码的整体架构&quot; class=&quot;headerlink&quot;</summary>
         
       
     
     
     
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
-    <category term="深入tomcat" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    <category term="Redis源码" scheme="https://andice-cream.github.io/categories/Redis%E6%BA%90%E7%A0%81/"/>
     
     
-    <category term="tomcat" scheme="https://lvxueyangtiger.github.io/tags/tomcat/"/>
+    <category term="Redis源码" scheme="https://andice-cream.github.io/tags/Redis%E6%BA%90%E7%A0%81/"/>
     
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="c源码" scheme="https://andice-cream.github.io/tags/c%E6%BA%90%E7%A0%81/"/>
     
   </entry>
   
   <entry>
-    <title>tomcat启动流程</title>
-    <link href="https://lvxueyangtiger.github.io/post/72c16057.html"/>
-    <id>https://lvxueyangtiger.github.io/post/72c16057.html</id>
-    <published>2024-05-30T01:10:36.540Z</published>
-    <updated>2022-11-27T09:16:42.475Z</updated>
+    <title>MyBatis启动流程(下)</title>
+    <link href="https://andice-cream.github.io/post/f121bfc7.html"/>
+    <id>https://andice-cream.github.io/post/f121bfc7.html</id>
+    <published>2024-05-30T01:10:36.379Z</published>
+    <updated>2022-11-27T09:16:37.657Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;tomcat启动流程&quot;&gt;&lt;a href=&quot;#tomcat启动流程&quot; class=&quot;headerlink&quot; title=&quot;tomcat启动流程&quot;&gt;&lt;/a&gt;tomcat启动流程&lt;/h2&gt;&lt;p&gt;&lt;img</summary>
+    <summary type="html">&lt;h3 id=&quot;Mapper-xml-映射文件解析全流程&quot;&gt;&lt;a href=&quot;#Mapper-xml-映射文件解析全流程&quot; class=&quot;headerlink&quot; title=&quot;Mapper.xml 映射文件解析全流程&quot;&gt;&lt;/a&gt;Mapper.xml</summary>
         
       
     
     
     
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
-    <category term="深入tomcat" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    <category term="MyBatis源码" scheme="https://andice-cream.github.io/categories/MyBatis%E6%BA%90%E7%A0%81/"/>
     
     
-    <category term="tomcat" scheme="https://lvxueyangtiger.github.io/tags/tomcat/"/>
+    <category term="源码" scheme="https://andice-cream.github.io/tags/%E6%BA%90%E7%A0%81/"/>
     
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="MyBatis" scheme="https://andice-cream.github.io/tags/MyBatis/"/>
     
   </entry>
   
   <entry>
-    <title>tomcat关于session实现</title>
-    <link href="https://lvxueyangtiger.github.io/post/50a36485.html"/>
-    <id>https://lvxueyangtiger.github.io/post/50a36485.html</id>
-    <published>2024-05-30T01:10:36.539Z</published>
-    <updated>2022-11-27T09:16:42.461Z</updated>
+    <title>MyBatis启动流程(上)</title>
+    <link href="https://andice-cream.github.io/post/e83a8e86.html"/>
+    <id>https://andice-cream.github.io/post/e83a8e86.html</id>
+    <published>2024-05-30T01:10:36.378Z</published>
+    <updated>2022-11-27T09:16:37.600Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;我们可以通过 Request 对象的 getSession 方法来获取 Session，并通过 Session 对象来读取和写入属性值。而 Session 的管理是由 Web 容器来完成的，主要是对 Session 的创建和销毁，除此之外 Web 容器还需要将</summary>
+    <summary type="html">&lt;p&gt;MyBatis 有两方面的 XML 配置，&lt;strong&gt;一个是 mybatis-config.xml 配置文件中的整体配置，另一个是 Mapper.xml 配置文件中的 SQL 语句&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;在初始化的过程中，MyBatis 会读取</summary>
         
       
     
     
     
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
-    <category term="深入tomcat" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    <category term="MyBatis源码" scheme="https://andice-cream.github.io/categories/MyBatis%E6%BA%90%E7%A0%81/"/>
     
     
-    <category term="tomcat" scheme="https://lvxueyangtiger.github.io/tags/tomcat/"/>
+    <category term="源码" scheme="https://andice-cream.github.io/tags/%E6%BA%90%E7%A0%81/"/>
     
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="MyBatis" scheme="https://andice-cream.github.io/tags/MyBatis/"/>
     
   </entry>
   
   <entry>
-    <title>tomcat体系架构</title>
-    <link href="https://lvxueyangtiger.github.io/post/f76d5203.html"/>
-    <id>https://lvxueyangtiger.github.io/post/f76d5203.html</id>
-    <published>2024-05-30T01:10:36.539Z</published>
-    <updated>2022-11-27T09:16:42.450Z</updated>
+    <title>MyBatis-缓存模块</title>
+    <link href="https://andice-cream.github.io/post/92521f4c.html"/>
+    <id>https://andice-cream.github.io/post/92521f4c.html</id>
+    <published>2024-05-30T01:10:36.378Z</published>
+    <updated>2022-11-27T09:16:37.529Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;tomcat体系架构&quot;&gt;&lt;a href=&quot;#tomcat体系架构&quot; class=&quot;headerlink&quot; title=&quot;tomcat体系架构&quot;&gt;&lt;/a&gt;tomcat体系架构&lt;/h2&gt;&lt;p&gt;&lt;img</summary>
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://note-1259153703.cos.ap-nanjing.myqcloud.com/images/202204141017603.png&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;mybatis缓存&quot;&gt;&lt;a</summary>
         
       
     
     
     
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
-    <category term="深入tomcat" scheme="https://lvxueyangtiger.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    <category term="MyBatis源码" scheme="https://andice-cream.github.io/categories/MyBatis%E6%BA%90%E7%A0%81/"/>
     
     
-    <category term="tomcat" scheme="https://lvxueyangtiger.github.io/tags/tomcat/"/>
+    <category term="源码" scheme="https://andice-cream.github.io/tags/%E6%BA%90%E7%A0%81/"/>
     
-    <category term="服务器" scheme="https://lvxueyangtiger.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="MyBatis" scheme="https://andice-cream.github.io/tags/MyBatis/"/>
     
   </entry>
   
