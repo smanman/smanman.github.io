@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>小肥龙吃大冰淇淋</title>
+  <icon>http://lvxueyang.vip/icon.png</icon>
+  <subtitle>有些梦想虽然遥不可及，但不是不可能实现。只要我足够的强。</subtitle>
+  <link href="http://lvxueyang.vip/atom.xml" rel="self"/>
+  
+  <link href="http://lvxueyang.vip/"/>
+  <updated>2022-11-27T09:16:42.646Z</updated>
+  <id>http://lvxueyang.vip/</id>
+  
+  <author>
+    <name>小肥龙吃大冰淇淋</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>tomcat优化启动速度</title>
+    <link href="http://lvxueyang.vip/post/aca3d52d.html"/>
+    <id>http://lvxueyang.vip/post/aca3d52d.html</id>
+    <published>2024-05-30T01:10:36.557Z</published>
+    <updated>2022-11-27T09:16:42.646Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;清理你的-tomcat&quot;&gt;&lt;a href=&quot;#清理你的-tomcat&quot; class=&quot;headerlink&quot; title=&quot;清理你的 tomcat&quot;&gt;&lt;/a&gt;清理你的 tomcat&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;1. 清理不必要的 Web</summary>
+        
+      
+    
+    
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    <category term="深入tomcat" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    
+    
+    <category term="tomcat" scheme="http://lvxueyang.vip/tags/tomcat/"/>
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>手写迷你版tomcat</title>
+    <link href="http://lvxueyang.vip/post/9a650b5.html"/>
+    <id>http://lvxueyang.vip/post/9a650b5.html</id>
+    <published>2024-05-30T01:10:36.556Z</published>
+    <updated>2022-01-12T13:34:27.737Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Minicat&quot;&gt;&lt;a href=&quot;#Minicat&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    <category term="深入tomcat" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    
+    
+    <category term="tomcat" scheme="http://lvxueyang.vip/tags/tomcat/"/>
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>tomcat集群通信</title>
+    <link href="http://lvxueyang.vip/post/cc823b59.html"/>
+    <id>http://lvxueyang.vip/post/cc823b59.html</id>
+    <published>2024-05-30T01:10:36.555Z</published>
+    <updated>2022-11-27T09:16:42.634Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;为了支持水平扩展和高可用，tomcat 提供了集群部署的能力，但与此同时也带来了分布式系统的一个通用问题，那就是如何在集群中的多个节点之间保持数据的一致性，比如会话（Session）信息。&lt;/p&gt;
+&lt;p&gt;要实现这一点，基本上有两种方式，一种是把所有 Session</summary>
+        
+      
+    
+    
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    <category term="深入tomcat" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    
+    
+    <category term="tomcat" scheme="http://lvxueyang.vip/tags/tomcat/"/>
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>tomcat连接器</title>
+    <link href="http://lvxueyang.vip/post/ab471235.html"/>
+    <id>http://lvxueyang.vip/post/ab471235.html</id>
+    <published>2024-05-30T01:10:36.554Z</published>
+    <updated>2022-11-27T09:16:42.625Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;tomcat-总体架构&quot;&gt;&lt;a href=&quot;#tomcat-总体架构&quot; class=&quot;headerlink&quot; title=&quot;tomcat 总体架构&quot;&gt;&lt;/a&gt;tomcat 总体架构&lt;/h2&gt;&lt;h3 id=&quot;tomcat-要实现-2-个核心功能&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    <category term="深入tomcat" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    
+    
+    <category term="tomcat" scheme="http://lvxueyang.vip/tags/tomcat/"/>
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>tomcat类加载和类加载器</title>
+    <link href="http://lvxueyang.vip/post/98931fb8.html"/>
+    <id>http://lvxueyang.vip/post/98931fb8.html</id>
+    <published>2024-05-30T01:10:36.552Z</published>
+    <updated>2022-11-27T09:16:42.604Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;tomcat类加载与类加载器&quot;&gt;&lt;a href=&quot;#tomcat类加载与类加载器&quot; class=&quot;headerlink&quot; title=&quot;tomcat类加载与类加载器&quot;&gt;&lt;/a&gt;tomcat类加载与类加载器&lt;/h2&gt;&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    <category term="深入tomcat" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    
+    
+    <category term="tomcat" scheme="http://lvxueyang.vip/tags/tomcat/"/>
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>tomcat请求流程</title>
+    <link href="http://lvxueyang.vip/post/e9620a43.html"/>
+    <id>http://lvxueyang.vip/post/e9620a43.html</id>
+    <published>2024-05-30T01:10:36.552Z</published>
+    <updated>2022-11-27T09:16:42.615Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;tomcat请求流程&quot;&gt;&lt;a href=&quot;#tomcat请求流程&quot; class=&quot;headerlink&quot; title=&quot;tomcat请求流程&quot;&gt;&lt;/a&gt;tomcat请求流程&lt;/h2&gt;&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    <category term="深入tomcat" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    
+    
+    <category term="tomcat" scheme="http://lvxueyang.vip/tags/tomcat/"/>
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>tomcat日志框架以及实战</title>
+    <link href="http://lvxueyang.vip/post/ddf9225e.html"/>
+    <id>http://lvxueyang.vip/post/ddf9225e.html</id>
+    <published>2024-05-30T01:10:36.550Z</published>
+    <updated>2022-11-27T09:16:42.584Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;handlers = 1catalina.org.apache.juli.AsyncFileHandler, 2localhost.org.apache.juli.AsyncFileHandler,</summary>
+        
+      
+    
+    
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    <category term="深入tomcat" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    
+    
+    <category term="tomcat" scheme="http://lvxueyang.vip/tags/tomcat/"/>
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>tomcat管道模式</title>
+    <link href="http://lvxueyang.vip/post/f9108ba4.html"/>
+    <id>http://lvxueyang.vip/post/f9108ba4.html</id>
+    <published>2024-05-30T01:10:36.550Z</published>
+    <updated>2022-11-27T09:16:42.595Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;tomcat管道模式&quot;&gt;&lt;a href=&quot;#tomcat管道模式&quot; class=&quot;headerlink&quot; title=&quot;tomcat管道模式&quot;&gt;&lt;/a&gt;tomcat管道模式&lt;/h2&gt;&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    <category term="深入tomcat" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    
+    
+    <category term="tomcat" scheme="http://lvxueyang.vip/tags/tomcat/"/>
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>tomcat生命周期</title>
+    <link href="http://lvxueyang.vip/post/9d3ac705.html"/>
+    <id>http://lvxueyang.vip/post/9d3ac705.html</id>
+    <published>2024-05-30T01:10:36.549Z</published>
+    <updated>2022-11-27T09:16:42.574Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;tomcat生命周期管理&quot;&gt;&lt;a href=&quot;#tomcat生命周期管理&quot; class=&quot;headerlink&quot; title=&quot;tomcat生命周期管理&quot;&gt;&lt;/a&gt;tomcat生命周期管理&lt;/h2&gt;&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    <category term="深入tomcat" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    
+    
+    <category term="tomcat" scheme="http://lvxueyang.vip/tags/tomcat/"/>
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>tomcat源码安装</title>
+    <link href="http://lvxueyang.vip/post/bff1d935.html"/>
+    <id>http://lvxueyang.vip/post/bff1d935.html</id>
+    <published>2024-05-30T01:10:36.548Z</published>
+    <updated>2022-11-27T09:16:42.563Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;tomcat源码安装&quot;&gt;&lt;a href=&quot;#tomcat源码安装&quot; class=&quot;headerlink&quot; title=&quot;tomcat源码安装&quot;&gt;&lt;/a&gt;tomcat源码安装&lt;/h2&gt;&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    <category term="深入tomcat" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    
+    
+    <category term="tomcat" scheme="http://lvxueyang.vip/tags/tomcat/"/>
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>tomcat性能优化</title>
+    <link href="http://lvxueyang.vip/post/9f3bfbf3.html"/>
+    <id>http://lvxueyang.vip/post/9f3bfbf3.html</id>
+    <published>2024-05-30T01:10:36.547Z</published>
+    <updated>2022-11-27T09:16:42.549Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;tomcat性能优化&quot;&gt;&lt;a href=&quot;#tomcat性能优化&quot; class=&quot;headerlink&quot; title=&quot;tomcat性能优化&quot;&gt;&lt;/a&gt;tomcat性能优化&lt;/h3&gt;&lt;p&gt;tomcat</summary>
+        
+      
+    
+    
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    <category term="深入tomcat" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    
+    
+    <category term="tomcat" scheme="http://lvxueyang.vip/tags/tomcat/"/>
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>tomcat对象池</title>
+    <link href="http://lvxueyang.vip/post/eb7082ea.html"/>
+    <id>http://lvxueyang.vip/post/eb7082ea.html</id>
+    <published>2024-05-30T01:10:36.547Z</published>
+    <updated>2022-11-27T09:16:42.529Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Java 对象，特别是一个比较大、比较复杂的 Java 对象，它们的创建、初始化和 GC 都需要耗费 CPU 和内存资源，为了减少这些开销，tomcat 和 Jetty 都使用了对象池技术。所谓的对象池技术，就是说一个 Java</summary>
+        
+      
+    
+    
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    <category term="深入tomcat" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    
+    
+    <category term="tomcat" scheme="http://lvxueyang.vip/tags/tomcat/"/>
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>tomcat对https的支持</title>
+    <link href="http://lvxueyang.vip/post/7767ee9f.html"/>
+    <id>http://lvxueyang.vip/post/7767ee9f.html</id>
+    <published>2024-05-30T01:10:36.546Z</published>
+    <updated>2022-11-27T09:16:42.519Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt; &lt;strong&gt;Https工作原理&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://note-1259153703.cos.ap-nanjing.myqcloud.com/images/202201122053825.png&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    <category term="深入tomcat" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    
+    
+    <category term="tomcat" scheme="http://lvxueyang.vip/tags/tomcat/"/>
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>tomcat扩展java线程池</title>
+    <link href="http://lvxueyang.vip/post/fdc58f0b.html"/>
+    <id>http://lvxueyang.vip/post/fdc58f0b.html</id>
+    <published>2024-05-30T01:10:36.543Z</published>
+    <updated>2022-01-12T13:34:27.705Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在开发中我们经常会碰到“池”的概念，比如数据库连接池、内存池、线程池、常量池等。为什么需要“池”呢？程序运行的本质，就是通过使用系统资源（CPU、内存、网络、磁盘等）来完成信息的处理，比如在 JVM 中创建一个对象实例需要消耗 CPU</summary>
+        
+      
+    
+    
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    <category term="深入tomcat" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    
+    
+    <category term="tomcat" scheme="http://lvxueyang.vip/tags/tomcat/"/>
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>tomcat之websocket</title>
+    <link href="http://lvxueyang.vip/post/cd1c6ea1.html"/>
+    <id>http://lvxueyang.vip/post/cd1c6ea1.html</id>
+    <published>2024-05-30T01:10:36.543Z</published>
+    <updated>2022-11-27T09:16:42.498Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;我们知道 HTTP 协议是“请求 - 响应”模式，浏览器必须先发请求给服务器，服务器才会响应这个请求。也就是说，服务器不会主动发送数据给浏览器。&lt;/p&gt;
+&lt;p&gt;Ajax 本质上还是轮询，而 Comet 是在 HTTP 长连接的基础上做了一些</summary>
+        
+      
+    
+    
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    <category term="深入tomcat" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    
+    
+    <category term="tomcat" scheme="http://lvxueyang.vip/tags/tomcat/"/>
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>tomcat实现热部署和热加载</title>
+    <link href="http://lvxueyang.vip/post/62473e51.html"/>
+    <id>http://lvxueyang.vip/post/62473e51.html</id>
+    <published>2024-05-30T01:10:36.542Z</published>
+    <updated>2022-01-12T13:34:27.691Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;今天我们首先来看热部署和热加载。要在运行的过程中升级 Web 应用，如果你不想重启系统，实现的方式有两种：热加载和热部署。&lt;/p&gt;
+&lt;p&gt;那如何实现热部署和热加载呢？它们跟类加载机制有关，具体来说就是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;热加载的实现方式是 Web</summary>
+        
+      
+    
+    
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    <category term="深入tomcat" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    
+    
+    <category term="tomcat" scheme="http://lvxueyang.vip/tags/tomcat/"/>
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>tomcat基本使用</title>
+    <link href="http://lvxueyang.vip/post/eb709392.html"/>
+    <id>http://lvxueyang.vip/post/eb709392.html</id>
+    <published>2024-05-30T01:10:36.541Z</published>
+    <updated>2022-11-27T09:16:42.486Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;tomcat基本使用&quot;&gt;&lt;a href=&quot;#tomcat基本使用&quot; class=&quot;headerlink&quot; title=&quot;tomcat基本使用&quot;&gt;&lt;/a&gt;tomcat基本使用&lt;/h2&gt;&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    <category term="深入tomcat" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    
+    
+    <category term="tomcat" scheme="http://lvxueyang.vip/tags/tomcat/"/>
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>tomcat启动流程</title>
+    <link href="http://lvxueyang.vip/post/72c16057.html"/>
+    <id>http://lvxueyang.vip/post/72c16057.html</id>
+    <published>2024-05-30T01:10:36.540Z</published>
+    <updated>2022-11-27T09:16:42.475Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;tomcat启动流程&quot;&gt;&lt;a href=&quot;#tomcat启动流程&quot; class=&quot;headerlink&quot; title=&quot;tomcat启动流程&quot;&gt;&lt;/a&gt;tomcat启动流程&lt;/h2&gt;&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    <category term="深入tomcat" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    
+    
+    <category term="tomcat" scheme="http://lvxueyang.vip/tags/tomcat/"/>
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>tomcat体系架构</title>
+    <link href="http://lvxueyang.vip/post/f76d5203.html"/>
+    <id>http://lvxueyang.vip/post/f76d5203.html</id>
+    <published>2024-05-30T01:10:36.539Z</published>
+    <updated>2022-11-27T09:16:42.450Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;tomcat体系架构&quot;&gt;&lt;a href=&quot;#tomcat体系架构&quot; class=&quot;headerlink&quot; title=&quot;tomcat体系架构&quot;&gt;&lt;/a&gt;tomcat体系架构&lt;/h2&gt;&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    <category term="深入tomcat" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    
+    
+    <category term="tomcat" scheme="http://lvxueyang.vip/tags/tomcat/"/>
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>tomcat关于session实现</title>
+    <link href="http://lvxueyang.vip/post/50a36485.html"/>
+    <id>http://lvxueyang.vip/post/50a36485.html</id>
+    <published>2024-05-30T01:10:36.539Z</published>
+    <updated>2022-11-27T09:16:42.461Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;我们可以通过 Request 对象的 getSession 方法来获取 Session，并通过 Session 对象来读取和写入属性值。而 Session 的管理是由 Web 容器来完成的，主要是对 Session 的创建和销毁，除此之外 Web 容器还需要将</summary>
+        
+      
+    
+    
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    <category term="深入tomcat" scheme="http://lvxueyang.vip/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%B1%E5%85%A5tomcat/"/>
+    
+    
+    <category term="tomcat" scheme="http://lvxueyang.vip/tags/tomcat/"/>
+    
+    <category term="服务器" scheme="http://lvxueyang.vip/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
+  
+</feed>

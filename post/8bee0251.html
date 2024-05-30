@@ -1,0 +1,348 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>JAVA中的线程安全 | 小肥龙吃大冰淇淋</title><meta name="keywords" content="线程安全"><meta name="author" content="小肥龙吃大冰淇淋"><meta name="copyright" content="小肥龙吃大冰淇淋"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="JAVA中的线程安全 什么是线程安全 当多个线程访问某个类时，不管运行时环境采用何种调度方式或者这些线程将如何交替执行，并且在调用代码中不需要任何额外的同步或者协同，这个类都能表现出正确的行为，那么就称这个类是线程安全的。   指多个线程在执行同一段代码的时候采用加锁机制，使每次的执行结果和单线程执行的结果都是一样的，不存在执行程序时出现意外结果。 线程不安全：是指不提供加锁机制保护，有可能出现多">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA中的线程安全">
+<meta property="og:url" content="http://lvxueyang.vip/post/8bee0251.html">
+<meta property="og:site_name" content="小肥龙吃大冰淇淋">
+<meta property="og:description" content="JAVA中的线程安全 什么是线程安全 当多个线程访问某个类时，不管运行时环境采用何种调度方式或者这些线程将如何交替执行，并且在调用代码中不需要任何额外的同步或者协同，这个类都能表现出正确的行为，那么就称这个类是线程安全的。   指多个线程在执行同一段代码的时候采用加锁机制，使每次的执行结果和单线程执行的结果都是一样的，不存在执行程序时出现意外结果。 线程不安全：是指不提供加锁机制保护，有可能出现多">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://note-1259153703.cos.ap-nanjing.myqcloud.com/blog/bg.jpg">
+<meta property="article:published_time" content="2024-05-30T01:10:36.300Z">
+<meta property="article:modified_time" content="2023-10-12T01:47:46.631Z">
+<meta property="article:author" content="小肥龙吃大冰淇淋">
+<meta property="article:tag" content="线程安全">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://note-1259153703.cos.ap-nanjing.myqcloud.com/blog/bg.jpg"><link rel="shortcut icon" href="https://lvxueyangboke.oss-cn-beijing.aliyuncs.com/images/20210805191028.png"><link rel="canonical" href="http://lvxueyang.vip/post/8bee0251"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'JAVA中的线程安全',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-10-12 09:47:46'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/LVXUEYANGTiger/blog@main/ali_icon.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/LVXUEYANGTiger/blog@main/mogai.css"><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css"  media="defer" onload="this.media='all'"><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="小肥龙吃大冰淇淋" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="wizard-scene"><div class="wizard-objects"><div class="wizard-square"></div><div class="wizard-circle"></div><div class="wizard-triangle"></div></div><div class="wizard"><div class="wizard-body"></div><div class="wizard-right-arm"><div class="wizard-right-hand"></div></div><div class="wizard-left-arm"><div class="wizard-left-hand"></div></div><div class="wizard-head"><div class="wizard-beard"></div><div class="wizard-face"><div class="wizard-adds"></div></div><div class="wizard-hat"><div class="wizard-hat-of-the-hat"></div><div class="wizard-four-point-star --first"></div><div class="wizard-four-point-star --second"></div><div class="wizard-four-point-star --third"></div></div></div></div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://note-1259153703.cos.ap-nanjing.myqcloud.com/blog/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">303</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">108</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">73</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw iconfont icon-shouyex"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw iconfont icon-zuixinwenzhang_huaban"></i><span> 找文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw iconfont icon-fenlei1"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw iconfont icon-biaoqian1"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw iconfont icon-shijianzhou"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw iconfont icon-shenghuo"></i><span> 生活</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/timeline/"><i class="fa-fw iconfont icon-shijianzhou"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw iconfont icon-lianjie"></i><span> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw iconfont icon-gerenzhongxin"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://note-1259153703.cos.ap-nanjing.myqcloud.com/blog/bg.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">小肥龙吃大冰淇淋</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw iconfont icon-shouyex"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw iconfont icon-zuixinwenzhang_huaban"></i><span> 找文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw iconfont icon-fenlei1"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw iconfont icon-biaoqian1"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw iconfont icon-shijianzhou"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw iconfont icon-shenghuo"></i><span> 生活</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/timeline/"><i class="fa-fw iconfont icon-shijianzhou"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw iconfont icon-lianjie"></i><span> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw iconfont icon-gerenzhongxin"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">JAVA中的线程安全</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-30T01:10:36.300Z" title="发表于 2024-05-30 09:10:36">2024-05-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-12T01:47:46.631Z" title="更新于 2023-10-12 09:47:46">2023-10-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/JUC%E7%B3%BB%E5%88%97/">JUC系列</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">4.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>16分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="JAVA中的线程安全"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="JAVA中的线程安全"><a href="#JAVA中的线程安全" class="headerlink" title="JAVA中的线程安全"></a>JAVA中的线程安全</h2><p><img src="https://note-1259153703.cos.ap-nanjing.myqcloud.com/images/threadsafety01.jpg" alt="img"></p>
+<h3 id="什么是线程安全"><a href="#什么是线程安全" class="headerlink" title="什么是线程安全"></a>什么是线程安全</h3><blockquote>
+<p>当多个线程访问某个类时，不管运行时环境采用何种调度方式或者这些线程将如何交替执行，并且在调用代码中不需要任何额外的同步或者协同，这个类都能表现出正确的行为，那么就称这个类是线程安全的。</p>
+</blockquote>
+<p> 指多个线程在执行同一段代码的时候采用加锁机制，使每次的执行结果和单线程执行的结果都是一样的，不存在执行程序时出现意外结果。</p>
+<p>线程不安全：是指不提供加锁机制保护，有可能出现多个线程先后更改数据造成所得到的数据是脏数据。</p>
+<h3 id="线程封闭"><a href="#线程封闭" class="headerlink" title="线程封闭"></a>线程封闭</h3><blockquote>
+<p>实现好的并发是一件困难的事情，所以很多时候我们都想躲避并发。避免并发最简单的方法就是线程封闭。什么是线程封闭呢？就是把对象封装到一个线程里，只有这一个线程能看到此对象。那么这个对象就算不是线程安全的也不会出现任何安全问题。实现线程封闭有哪些方法呢？</p>
+</blockquote>
+<p><strong>ad-hoc线程封闭：</strong></p>
+<p> 这是完全靠实现者控制的线程封闭，他的线程封闭完全靠实现者实现。Ad-hoc线程封闭非常脆弱，应该尽量避免使用。</p>
+<p><strong>栈封闭：</strong></p>
+<p> 栈封闭是我们编程当中遇到的最多的线程封闭。什么是栈封闭呢？简单的说就是局部变量。多个线程访问一个方法，此方法中的局部变量都会被拷贝一份到线程栈中。所以局部变量是不会被多个线程所共享的，也就不会出现并发问题。所以能用局部变量就别用全局的变量，全局变量容易引起并发问题。</p>
+<h4 id="无状态的类"><a href="#无状态的类" class="headerlink" title="无状态的类"></a>无状态的类</h4><blockquote>
+<p>没有任何成员变量的类，就叫无状态的类，这种类一定是线程安全的。如果这个类的方法参数中使用了对象，也是线程安全的吗？比如：</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class StatelessClass &#123;</span><br><span class="line">	public int service(int a,int b)&#123;</span><br><span class="line">	    return a+b;</span><br><span class="line">    &#125;</span><br><span class="line">    public void serviceUser(UserVo user)&#123;</span><br><span class="line">        //do sth user</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当然也是，因为多线程下的使用，固然user这个对象的实例会不正常，但是对于StatelessClass这个类的对象实例来说，它并不持有UserVo的对象实例，它自己并不会有问题，有问题的是UserVo这个类，而非StatelessClass本身。</p>
+<h4 id="让类不可变"><a href="#让类不可变" class="headerlink" title="让类不可变"></a>让类不可变</h4><blockquote>
+<p><strong>让状态不可变，两种方式</strong></p>
+</blockquote>
+<h5 id="加final关键字"><a href="#加final关键字" class="headerlink" title="加final关键字"></a>加final关键字</h5><blockquote>
+<p>加final关键字，对于一个类，所有的成员变量应该是私有的，同样的只要有可能，所有的成员变量应该加上final关键字，但是加上final，要注意如果成员变量又是一个对象时，这个对象所对应的类也要是不可变，才能保证整个类是不可变的。参见代码：</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 类不可变</span><br><span class="line"> */</span><br><span class="line">public class ImmutableClass &#123;</span><br><span class="line">    private final int a;</span><br><span class="line">    private final UserVo user = new UserVo();//不安全</span><br><span class="line"></span><br><span class="line">	public int getA() &#123;</span><br><span class="line">		return a;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public UserVo getUser() &#123;</span><br><span class="line">		return user;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	public ImmutableClass(int a) &#123;</span><br><span class="line">		this.a = a;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static class User&#123;</span><br><span class="line">    	private int age;</span><br><span class="line"></span><br><span class="line">		public int getAge() &#123;</span><br><span class="line">			return age;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		public void setAge(int age) &#123;</span><br><span class="line">			this.age = age;</span><br><span class="line">		&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="不提供返回值"><a href="#不提供返回值" class="headerlink" title="不提供返回值"></a>不提供返回值</h5><blockquote>
+<p>根本就不提供任何可供修改成员变量的地方，同时成员变量也不作为方法的返回值。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 类不可变--事实不可变</span><br><span class="line"> */</span><br><span class="line">public class ImmutableClassToo &#123;</span><br><span class="line">    private final List&lt;Integer&gt; list = new ArrayList&lt;&gt;(3);</span><br><span class="line"></span><br><span class="line">    public ImmutableClassToo() &#123;</span><br><span class="line">        list.add(1);</span><br><span class="line">        list.add(2);</span><br><span class="line">        list.add(3);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public boolean isContain(int i)&#123;</span><br><span class="line">        return list.contains(i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是要注意，一旦类的成员变量中有对象，上述的final关键字保证不可变并不能保证类的安全性，为何？因为在多线程下，虽然对象的引用不可变，但是对象在堆上的实例是有可能被多个线程同时修改的，没有正确处理的情况下，对象实例在堆中的数据是不可预知的。这就牵涉到了如何安全的发布对象这个问题。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class ImmutableClass &#123;</span><br><span class="line">	private final int a;</span><br><span class="line">	private final UserVo user = new UserVo(); //不安全</span><br><span class="line">	 </span><br><span class="line">	public int getA() &#123;</span><br><span class="line">		return a;</span><br><span class="line">	&#125;</span><br><span class="line">	public UserVo getUser() &#123;</span><br><span class="line">		return user;</span><br><span class="line">	&#125;</span><br><span class="line">	public ImmutableClass(int a) &#123;</span><br><span class="line">		this.a = a;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static class User&#123;</span><br><span class="line">    	private int age;</span><br><span class="line">		public int getAge() &#123;</span><br><span class="line">			return age;</span><br><span class="line">		&#125;</span><br><span class="line">		public void setAge(int age) &#123;</span><br><span class="line">			this.age = age;</span><br><span class="line">		&#125;</span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="volatile"><a href="#volatile" class="headerlink" title="volatile"></a>volatile</h5><p> 并不能保证类的线程安全性，只能保证类的可见性，最适合一个线程写，多个线程读的情景。</p>
+<h5 id="加锁和CAS"><a href="#加锁和CAS" class="headerlink" title="加锁和CAS"></a>加锁和CAS</h5><p> 我们最常使用的保证线程安全的手段，使用synchronized关键字，使用显式锁，使用各种原子变量，修改数据时使用CAS机制等等。</p>
+<h4 id="安全的发布"><a href="#安全的发布" class="headerlink" title="安全的发布"></a>安全的发布</h4><blockquote>
+<p>类中持有的成员变量，如果是基本类型，发布出去，并没有关系，因为发布出去的其实是这个变量的一个副本，参见代码：</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 演示基本类型的发布</span><br><span class="line"> */</span><br><span class="line">public class SafePublish &#123;</span><br><span class="line">	private int i;</span><br><span class="line"></span><br><span class="line">    public SafePublish() &#123;</span><br><span class="line">    	i = 2;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">	public int getI() &#123;</span><br><span class="line">		return i;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		SafePublish safePublish = new SafePublish();</span><br><span class="line">		int j = safePublish.getI();</span><br><span class="line">		System.out.println(&quot;before j=&quot;+j);</span><br><span class="line">		j = 3;</span><br><span class="line">		System.out.println(&quot;after j=&quot;+j);</span><br><span class="line">		System.out.println(&quot;getI = &quot;+safePublish.getI());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是如果类中持有的成员变量是对象的引用，如果这个成员对象不是线程安全的，通过get等方法发布出去，会造成这个成员对象本身持有的数据在多线程下不正确的修改，从而造成整个类线程不安全的问题。参见以下代码可以看见：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 不安全的发布</span><br><span class="line"> */</span><br><span class="line">public class UnSafePublish &#123;</span><br><span class="line">	private List&lt;Integer&gt; list = new ArrayList&lt;&gt;(3);</span><br><span class="line">	</span><br><span class="line">    public UnSafePublish() &#123;</span><br><span class="line">    	list.add(1);</span><br><span class="line">    	list.add(2);</span><br><span class="line">    	list.add(3);</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">	public List getList() &#123;</span><br><span class="line">		return list;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		UnSafePublish unSafePublish = new UnSafePublish();</span><br><span class="line">		List&lt;Integer&gt; list = unSafePublish.getList();</span><br><span class="line">		System.out.println(list);</span><br><span class="line">		list.add(4);</span><br><span class="line">		System.out.println(list);</span><br><span class="line">		System.out.println(unSafePublish.getList());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个list发布出去后，是可以被外部线程之间修改，那么在多个线程同时修改的情况下不安全问题是肯定存在的，怎么修正这个问题呢？我们在发布这对象的时候，就应该用线程安全的方式包装这个对象。我们将list用Collections.synchronizedList进行包装以后，无论多少线程使用这个list，就都是线程安全的了。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 安全的发布</span><br><span class="line"> */</span><br><span class="line">public class SafePublishToo &#123;</span><br><span class="line">    private List&lt;Integer&gt; list</span><br><span class="line">            = Collections.synchronizedList(new ArrayList&lt;&gt;(3));</span><br><span class="line"></span><br><span class="line">    public SafePublishToo() &#123;</span><br><span class="line">        list.add(1);</span><br><span class="line">        list.add(2);</span><br><span class="line">        list.add(3);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public List getList() &#123;</span><br><span class="line">        return list;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        SafePublishToo safePublishToo = new SafePublishToo();</span><br><span class="line">        List&lt;Integer&gt; list = safePublishToo.getList();</span><br><span class="line">        System.out.println(list);</span><br><span class="line">        list.add(4);</span><br><span class="line">        System.out.println(list);</span><br><span class="line">        System.out.println(safePublishToo.getList());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于我们自己使用或者声明的类，JDK自然没有提供这种包装类的办法，但是我们可以仿造这种模式或者委托给线程安全的类，当然，对这种通过get等方法发布出去的对象，最根本的解决办法还是应该在实现上就考虑到线程安全问题。</p>
+<h5 id="TheadLocal方式"><a href="#TheadLocal方式" class="headerlink" title="TheadLocal方式"></a>TheadLocal方式</h5><p> ThreadLocal是实现线程封闭的最好方法。ThreadLocal内部维护了一个Map，Map的key是每个线程的名称，而Map的值就是我们要封闭的对象。每个线程中的对象都对应着Map中一个值，也就是ThreadLocal利用Map实现了对象的线程封闭。</p>
+<h5 id="Servlet辨析"><a href="#Servlet辨析" class="headerlink" title="Servlet辨析"></a>Servlet辨析</h5><blockquote>
+<p>不是线程安全的类，为什么我们平时没感觉到：</p>
+</blockquote>
+<p>1、在需求上，很少有共享的需求。<br>2、接收到了请求，返回应答的时候，一般都是由一个线程来负责的。但是只要Servlet中有成员变量，一旦有多线程下的写，就很容易产生线程安全问题。</p>
+<h3 id="其他安全问题"><a href="#其他安全问题" class="headerlink" title="其他安全问题"></a>其他安全问题</h3><h4 id="活锁"><a href="#活锁" class="headerlink" title="活锁"></a>活锁</h4><blockquote>
+<p>两个线程在尝试拿锁的机制中，发生多个线程之间互相谦让，不断发生同一个线程总是拿到同一把锁，在尝试拿另一把锁时因为拿不到，而将本来已经持有的锁释放的过程。解决办法：每个线程休眠随机数，错开拿锁的时间。</p>
+</blockquote>
+<h5 id="线程饥饿"><a href="#线程饥饿" class="headerlink" title="线程饥饿"></a>线程饥饿</h5><p> 低优先级的线程，总是拿不到执行时间。</p>
+<h5 id="并发下的性能"><a href="#并发下的性能" class="headerlink" title="并发下的性能"></a>并发下的性能</h5><p> 使用并发的目标是为了提高性能，引入多线程后，其实会引入额外的开销，如线程之间的协调、增加的上下文切换，线程的创建和销毁，线程的调度等等。过度的使用和不恰当的使用，会导致多线程程序甚至比单线程还要低。</p>
+<h5 id="衡量应用的程序的性能"><a href="#衡量应用的程序的性能" class="headerlink" title="衡量应用的程序的性能"></a>衡量应用的程序的性能</h5><p> 服务时间，延迟时间，吞吐量，可伸缩性等等，其中服务时间，延迟时间（多快），吞吐量（处理能力的指标，完成工作的多少）。多快和多少，完全独立，甚至是相互矛盾的。</p>
+<h5 id="对服务器应用来说"><a href="#对服务器应用来说" class="headerlink" title="对服务器应用来说"></a>对服务器应用来说</h5><p> 多少（可伸缩性，吞吐量）这个方面比多快更受重视。</p>
+<h5 id="我们做应用的时候"><a href="#我们做应用的时候" class="headerlink" title="我们做应用的时候"></a>我们做应用的时候</h5><ul>
+<li>先保证程序正确，确实达不到要求的时候，再提高速度。（黄金原则）</li>
+<li>一定要以测试为基准。</li>
+</ul>
+<h4 id="线程引入的开销"><a href="#线程引入的开销" class="headerlink" title="线程引入的开销"></a>线程引入的开销</h4><h5 id="线程引入的开销-1"><a href="#线程引入的开销-1" class="headerlink" title="线程引入的开销"></a>线程引入的开销</h5><p> 如果主线程是唯一的线程，那么它基本上不会被调度出去。另一方面，如果可运行的线程数大于CPU的数量，那么操作系统最终会将某个正在运行的线程调度出来，从而使其他线程能够使用CPU。这将导致一次上下文切换，在这个过程中将保存当前运行线程的执行上下文，并将新调度进来的线程的执行上下文设置为当前上下文。上下文切换有点像我们同时阅读几本书，在来回切换书本的同时我们需要记住每本书当前读到的页码。</p>
+<p> 切换上下文需要一定的开销，而在线程调度过程中需要访问由操作系统和JVM共享的数据结构。应用程序、操作系统以及JVM都使用一组相同的CPU。在JVM和操作系统的代码中消耗的CPU时钟周期越多，应用程序的可用CPU时钟周期就越少，但上下文切换的开销并不只是包含JVM和操作系统的开销。当一个新的线程被切换进来时，它所需要的数据可能不在当前处理器的本地缓存中，因此上下文切换将导致一些缓存缺失，因而线程在首次调度运行时会更加缓慢。</p>
+<p> 当线程由于等待某个发生竞争的锁而被阻塞时，JVM通常会将这个线程挂起，并允许它被交换出去。如果线程频繁地发生阻塞，那么它们将无法使用完整的调度时间片。在程序中发生越多的阻塞(包括阻塞IO,等待获取发生竞争的锁，或者在条件变量上等待)与CPU密集型的程序就会发生越多的上下文切换，从而增加调度开销，并因此而降低吞吐量。</p>
+<p> 上下文切换是计算密集型操作。也就是说，它需要相当可观的处理器时间。所以上下文切换对系统来说意味着消耗大量的CPU时间，事实上可能是操作系统中时间消耗最大的操作。上下文切换的实际开销会随着平台的不同而变化，然而按照经验来看，在大多数通用的处理器中上下文切换的开销相当于50~10000个时钟周期，也就是几微秒。</p>
+<p> UNIX系统的 vmstat命令能报告上下文切换次数以及在内核中执行时间所占比例等信息。如果内核占用率较高(超过10%),那么通常表示调度活动发生得很频繁，这很可能是由IO或竞争锁导致的阻塞引起的。</p>
+<h5 id="内存同步"><a href="#内存同步" class="headerlink" title="内存同步"></a>内存同步</h5><p> 同步操作的性能开销包括多个方面，在 synchronized和 volatile提供的可见性保证中可能会使用一些特殊指令,即内存栅栏( Memory Barrier)。内存栅栏可以刷新缓存，使缓存无效刷新硬件的写缓冲以及停止执行管道。内存栅栏可能同样会对性能带来间接的影响，因为它们将抑制一些编译器优化操作。在内存栅栏中大多数操作都是不能被重排序的。</p>
+<h5 id="阻塞"><a href="#阻塞" class="headerlink" title="阻塞"></a>阻塞</h5><h6 id="引起阻塞的原因"><a href="#引起阻塞的原因" class="headerlink" title="引起阻塞的原因"></a>引起阻塞的原因</h6><p> 包括阻塞IO等待获取发生竞争的锁，或者在条件变量上等待等等。</p>
+<h6 id="阻塞会导致线程挂起"><a href="#阻塞会导致线程挂起" class="headerlink" title="阻塞会导致线程挂起"></a>阻塞会导致线程挂起</h6><p> 【挂起：挂起进程在操作系统中可以定义为暂时被淘汰出内存的进程，机器的资源是有限的，在资源不足的情况下，操作系统对在内存中的程序进行合理的安排，其中有的进程被暂时调离出内存，当条件允许的时候，会被操作系统再次调回内存，重新进入等待被执行的状态即就绪态，系统在超过一定的时间没有任何动作】。<br>很明显这个操作至少包括两次额外的上下文切换，还有相关的操作系统级的操作等等。</p>
+<h4 id="线程安全的单例模式"><a href="#线程安全的单例模式" class="headerlink" title="线程安全的单例模式"></a>线程安全的单例模式</h4><h5 id="双重检查锁定"><a href="#双重检查锁定" class="headerlink" title="双重检查锁定"></a>双重检查锁定</h5><blockquote>
+<p>比较老的方式，线程不安全</p>
+</blockquote>
+<p>原理：在getInstance()方法中，进行两次null检查。这样可以极大提升并发度，进而提升性能。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class SingletonDoubleCheck &#123;</span><br><span class="line">   //TODO 注意如果不适用volatile 关键字无法保证线程安全</span><br><span class="line">   private volatile static SingletonDoubleCheck sDoubleCheck;</span><br><span class="line">   private SingletonDoubleCheck() &#123;&#125;</span><br><span class="line">   public static SingletonDoubleCheck getInstance() &#123;</span><br><span class="line">      //第一次检查，不加锁</span><br><span class="line">      if(sDoubleCheck == null) &#123;</span><br><span class="line">         System.out.println(Thread.currentThread()+&quot; is null&quot;);</span><br><span class="line">         synchronized(SingletonDoubleCheck.class) &#123;</span><br><span class="line">            //第二次检查，加锁情况下</span><br><span class="line">            if(sDoubleCheck == null) &#123;</span><br><span class="line">                System.out.println(Thread.currentThread()+&quot; is null&quot;);</span><br><span class="line">                    //内存中分配空间  1</span><br><span class="line">                    //空间初始化 2</span><br><span class="line">                    //把这个空间的地址给我们的引用  3</span><br><span class="line">               sDoubleCheck = new SingletonDoubleCheck();</span><br><span class="line">            &#125;</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      return sDoubleCheck;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>解决办法，加volatile关键字。</strong></p>
+<h5 id="静态内部类实现单例模式（无锁方式）"><a href="#静态内部类实现单例模式（无锁方式）" class="headerlink" title="静态内部类实现单例模式（无锁方式）"></a>静态内部类实现单例模式（无锁方式）</h5><p>原理：通过一个静态内部类定义一个静态变量来持有当前类实例，在类加载时就创建好，使用时获取。<br>缺点：无法做到延迟创建对象，在类加载时进行创建会导致初始化时间变长。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class LazySingleton &#123;</span><br><span class="line">   //TODO 通过private修饰，就是为了防止这个类被随意创建</span><br><span class="line">   private LazySingleton()&#123;&#125;</span><br><span class="line">   //TODO 利用虚拟机的类初始化机制创建单例</span><br><span class="line">   private static class SingletonHolder &#123;</span><br><span class="line">      private static LazySingleton instance = new LazySingleton();</span><br><span class="line">   &#125;</span><br><span class="line">   //TODO</span><br><span class="line">   public static LazySingleton getInstance() &#123;</span><br><span class="line">      return SingletonHolder.instance;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="懒汉式"><a href="#懒汉式" class="headerlink" title="懒汉式"></a>懒汉式</h5><p>原理：类延迟创建，在单例类的内部由一个私有静态内部类来持有这个单例类的实例，延迟占位模式还可以用在多线程下实例域的延迟赋值。<br>缺点：由于synchronized的存在，多线程时效率很低。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class LazySingletonSynchronized &#123;</span><br><span class="line">   //TODO 通过private修饰，就是为了防止这个类被随意创建,只有内部自己可以创建</span><br><span class="line">   private LazySingletonSynchronized()&#123;</span><br><span class="line">      System.out.println(&quot;LazySingleton is created!!&quot;);</span><br><span class="line">   &#125;</span><br><span class="line">   // TODO 首先instance对象必须是private并且static，如果不是private那么instance的安全无法得到保证</span><br><span class="line">   //TODO 其次因为工厂方法必须是static，因此变量instance也必须是static</span><br><span class="line">   private static LazySingletonSynchronized instance = null;</span><br><span class="line">   // TODO 为了防止对象被多次创建，使用synchronized关键字进行同步（缺点是并发环境下加锁，竞争激励的场合可能对性能产生一定影响）</span><br><span class="line">   public static synchronized LazySingletonSynchronized getInstance() &#123;</span><br><span class="line">      if(instance == null) &#123;</span><br><span class="line">         instance = new LazySingletonSynchronized();</span><br><span class="line">      &#125;</span><br><span class="line">      return instance;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="饿汉式"><a href="#饿汉式" class="headerlink" title="饿汉式"></a>饿汉式</h5><p>原理：在声明的时候就new这个类的实例，因为在JVM中，对类的加载和类初始化，由虚拟机保证线程安全，每次要用时直接返回。<br>缺点：无法做到延迟创建对象，在类加载时进行创建会导致初始化时间变长。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class SingletonSynchronized &#123;</span><br><span class="line">   //TODO 通过private修饰，就是为了防止这个类被随意创建,只有内部自己可以创建</span><br><span class="line">   private SingletonSynchronized()&#123; &#125;</span><br><span class="line">   // TODO 首先instance对象必须是private并且static，如果不是private那么instance的安全无法得到保证</span><br><span class="line">   //TODO 其次因为工厂方法必须是static，因此变量instance也必须是static</span><br><span class="line">   private static SingletonSynchronized instance = new SingletonSynchronized();</span><br><span class="line">   public static SingletonSynchronized getInstance() &#123;</span><br><span class="line">      return instance;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="上述4种方式实现单例模式的缺点"><a href="#上述4种方式实现单例模式的缺点" class="headerlink" title="上述4种方式实现单例模式的缺点"></a>上述4种方式实现单例模式的缺点</h5><h6 id="反序列化对象时会破环单例"><a href="#反序列化对象时会破环单例" class="headerlink" title="反序列化对象时会破环单例"></a>反序列化对象时会破环单例</h6><blockquote>
+<p>反序列化对象时不会调用getXX()方法，于是绕过了确保单例的逻辑，直接生成了一个新的对象，破环了单例。</p>
+</blockquote>
+<p>解决办法是：重写类的反序列化方法，在反序列化方法中返回单例而不是创建一个新的对象。<br>//反序列时直接返回当前INSTANCE</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">private Object readResolve() &#123;</span><br><span class="line">return INSTANCE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="使用反射"><a href="#使用反射" class="headerlink" title="使用反射"></a>使用反射</h6><blockquote>
+<p>在代码中通过反射机制，直接调用类的私有构造函数创建新的对象，会破环单例</p>
+</blockquote>
+<p>解决办法是：维护一个volatile的标志变量在第一次创建实例时置为false；重写构造函数，根据标志变量决定是否允许创建。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">private static volatile boolean flag = true;</span><br><span class="line">private Singleton()&#123;</span><br><span class="line">if(flag)&#123;</span><br><span class="line">flag = false; //第一次创建时，改变标志</span><br><span class="line">&#125;else&#123;</span><br><span class="line">throw new RuntimeException(“The instance already exists ！”);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="使用枚举"><a href="#使用枚举" class="headerlink" title="使用枚举"></a>使用枚举</h5><p>原理：定义枚举类型，里面只维护一个实例，以此保证单例。每次取用时都从枚举中取，而不会取到其他实例。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public enum SingletonEnum &#123;</span><br><span class="line">    INSTANCE;</span><br><span class="line">    private String name;</span><br><span class="line">    public String getName()&#123;</span><br><span class="line">        return name;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setName(String name)&#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h6><ol>
+<li>使用SingletonEnum.INSTANCE进行访问，无需再定义getInstance方法和调用该方法。</li>
+<li>JVM对枚举实例的唯一性，避免了上面提到的反序列化和反射机制破环单例的情况出现：每一个枚举类型和定义的枚举变量在JVM中都是唯一的。</li>
+</ol>
+<p>　</p>
+<p>原因：枚举类型在序列化时仅仅是将枚举对象的name属性输出到结果中，反序列化的时候则是通过java.lang.Enum的valueOf方法来根据名字查找枚举对象。<br>同时，编译器禁止重写枚举类型的writeObject、readObject、readObjectNoData、writeReplace和readResolve等方法。</p>
+<h4 id="如何减少锁的竞争"><a href="#如何减少锁的竞争" class="headerlink" title="如何减少锁的竞争"></a>如何减少锁的竞争</h4><h5 id="减少锁的粒度"><a href="#减少锁的粒度" class="headerlink" title="减少锁的粒度"></a>减少锁的粒度</h5><p> 使用锁的时候，锁所保护的对象是多个，当这些多个对象其实是独立变化的时候，不如用多个锁来一一保护这些对象。但是如果有同时要持有多个锁的业务方法，要注意避免发生死锁</p>
+<h5 id="缩小锁的范围"><a href="#缩小锁的范围" class="headerlink" title="缩小锁的范围"></a>缩小锁的范围</h5><p> 对锁的持有实现快进快出，尽量缩短持由锁的的时间。将一些与锁无关的代码移出锁的范围，特别是一些耗时，可能阻塞的操作</p>
+<h5 id="避免多余的锁"><a href="#避免多余的锁" class="headerlink" title="避免多余的锁"></a>避免多余的锁</h5><p> 两次加锁之间的语句非常简单，导致加锁的时间比执行这些语句还长，这个时候应该进行锁粗化—扩大锁的范围。</p>
+<h5 id="锁分段"><a href="#锁分段" class="headerlink" title="锁分段"></a>锁分段</h5><p> ConcurrrentHashMap就是典型的锁分段。</p>
+<h5 id="替换独占锁"><a href="#替换独占锁" class="headerlink" title="替换独占锁"></a>替换独占锁</h5><h5 id="在业务允许的情况下"><a href="#在业务允许的情况下" class="headerlink" title="在业务允许的情况下"></a>在业务允许的情况下</h5><ul>
+<li>使用读写锁。</li>
+<li>用自旋CAS。</li>
+<li>使用系统的并发容器。</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">小肥龙吃大冰淇淋</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://lvxueyang.vip/post/8bee0251.html">http://lvxueyang.vip/post/8bee0251.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://lvxueyang.vip" target="_blank">小肥龙吃大冰淇淋</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/">线程安全</a></div><div class="post_share"><div class="social-share" data-image="https://note-1259153703.cos.ap-nanjing.myqcloud.com/blog/bg.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/LVXUEYANGTiger/blog@main/mm_facetoface_collect_qrcode_1628169825807.png" target="_blank"><img class="post-qr-code-img" src="https://cdn.jsdelivr.net/gh/LVXUEYANGTiger/blog@main/mm_facetoface_collect_qrcode_1628169825807.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/LVXUEYANGTiger/blog@main/1628169797.jpg" target="_blank"><img class="post-qr-code-img" src="https://cdn.jsdelivr.net/gh/LVXUEYANGTiger/blog@main/1628169797.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/e309157e.html"><img class="prev-cover" src="https://note-1259153703.cos.ap-nanjing.myqcloud.com/blog/bg.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">java并发工具类-线程池</div></div></a></div><div class="next-post pull-right"><a href="/post/b3ff3d40.html"><img class="next-cover" src="https://note-1259153703.cos.ap-nanjing.myqcloud.com/blog/bg.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">java中的活锁</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JAVA%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8"><span class="toc-number">1.</span> <span class="toc-text">JAVA中的线程安全</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8"><span class="toc-number">1.1.</span> <span class="toc-text">什么是线程安全</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E5%B0%81%E9%97%AD"><span class="toc-number">1.2.</span> <span class="toc-text">线程封闭</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A0%E7%8A%B6%E6%80%81%E7%9A%84%E7%B1%BB"><span class="toc-number">1.2.1.</span> <span class="toc-text">无状态的类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A9%E7%B1%BB%E4%B8%8D%E5%8F%AF%E5%8F%98"><span class="toc-number">1.2.2.</span> <span class="toc-text">让类不可变</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8A%A0final%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">加final关键字</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%8D%E6%8F%90%E4%BE%9B%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">不提供返回值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#volatile"><span class="toc-number">1.2.2.3.</span> <span class="toc-text">volatile</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8A%A0%E9%94%81%E5%92%8CCAS"><span class="toc-number">1.2.2.4.</span> <span class="toc-text">加锁和CAS</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E7%9A%84%E5%8F%91%E5%B8%83"><span class="toc-number">1.2.3.</span> <span class="toc-text">安全的发布</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#TheadLocal%E6%96%B9%E5%BC%8F"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">TheadLocal方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Servlet%E8%BE%A8%E6%9E%90"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">Servlet辨析</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98"><span class="toc-number">1.3.</span> <span class="toc-text">其他安全问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B4%BB%E9%94%81"><span class="toc-number">1.3.1.</span> <span class="toc-text">活锁</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E9%A5%A5%E9%A5%BF"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">线程饥饿</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E4%B8%8B%E7%9A%84%E6%80%A7%E8%83%BD"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">并发下的性能</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%A1%A1%E9%87%8F%E5%BA%94%E7%94%A8%E7%9A%84%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%80%A7%E8%83%BD"><span class="toc-number">1.3.1.3.</span> <span class="toc-text">衡量应用的程序的性能</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AF%B9%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%BA%94%E7%94%A8%E6%9D%A5%E8%AF%B4"><span class="toc-number">1.3.1.4.</span> <span class="toc-text">对服务器应用来说</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%88%91%E4%BB%AC%E5%81%9A%E5%BA%94%E7%94%A8%E7%9A%84%E6%97%B6%E5%80%99"><span class="toc-number">1.3.1.5.</span> <span class="toc-text">我们做应用的时候</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E5%BC%95%E5%85%A5%E7%9A%84%E5%BC%80%E9%94%80"><span class="toc-number">1.3.2.</span> <span class="toc-text">线程引入的开销</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E5%BC%95%E5%85%A5%E7%9A%84%E5%BC%80%E9%94%80-1"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">线程引入的开销</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E5%90%8C%E6%AD%A5"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">内存同步</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%98%BB%E5%A1%9E"><span class="toc-number">1.3.2.3.</span> <span class="toc-text">阻塞</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%BC%95%E8%B5%B7%E9%98%BB%E5%A1%9E%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="toc-number">1.3.2.3.1.</span> <span class="toc-text">引起阻塞的原因</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E9%98%BB%E5%A1%9E%E4%BC%9A%E5%AF%BC%E8%87%B4%E7%BA%BF%E7%A8%8B%E6%8C%82%E8%B5%B7"><span class="toc-number">1.3.2.3.2.</span> <span class="toc-text">阻塞会导致线程挂起</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.3.3.</span> <span class="toc-text">线程安全的单例模式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%8C%E9%87%8D%E6%A3%80%E6%9F%A5%E9%94%81%E5%AE%9A"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">双重检查锁定</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E5%86%85%E9%83%A8%E7%B1%BB%E5%AE%9E%E7%8E%B0%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%EF%BC%88%E6%97%A0%E9%94%81%E6%96%B9%E5%BC%8F%EF%BC%89"><span class="toc-number">1.3.3.2.</span> <span class="toc-text">静态内部类实现单例模式（无锁方式）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%87%92%E6%B1%89%E5%BC%8F"><span class="toc-number">1.3.3.3.</span> <span class="toc-text">懒汉式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A5%BF%E6%B1%89%E5%BC%8F"><span class="toc-number">1.3.3.4.</span> <span class="toc-text">饿汉式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%8A%E8%BF%B04%E7%A7%8D%E6%96%B9%E5%BC%8F%E5%AE%9E%E7%8E%B0%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="toc-number">1.3.3.5.</span> <span class="toc-text">上述4种方式实现单例模式的缺点</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%AF%B9%E8%B1%A1%E6%97%B6%E4%BC%9A%E7%A0%B4%E7%8E%AF%E5%8D%95%E4%BE%8B"><span class="toc-number">1.3.3.5.1.</span> <span class="toc-text">反序列化对象时会破环单例</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%8F%8D%E5%B0%84"><span class="toc-number">1.3.3.5.2.</span> <span class="toc-text">使用反射</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%9E%9A%E4%B8%BE"><span class="toc-number">1.3.3.6.</span> <span class="toc-text">使用枚举</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BC%98%E7%82%B9"><span class="toc-number">1.3.3.6.1.</span> <span class="toc-text">优点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%87%8F%E5%B0%91%E9%94%81%E7%9A%84%E7%AB%9E%E4%BA%89"><span class="toc-number">1.3.4.</span> <span class="toc-text">如何减少锁的竞争</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%87%8F%E5%B0%91%E9%94%81%E7%9A%84%E7%B2%92%E5%BA%A6"><span class="toc-number">1.3.4.1.</span> <span class="toc-text">减少锁的粒度</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BC%A9%E5%B0%8F%E9%94%81%E7%9A%84%E8%8C%83%E5%9B%B4"><span class="toc-number">1.3.4.2.</span> <span class="toc-text">缩小锁的范围</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%81%BF%E5%85%8D%E5%A4%9A%E4%BD%99%E7%9A%84%E9%94%81"><span class="toc-number">1.3.4.3.</span> <span class="toc-text">避免多余的锁</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%94%81%E5%88%86%E6%AE%B5"><span class="toc-number">1.3.4.4.</span> <span class="toc-text">锁分段</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9B%BF%E6%8D%A2%E7%8B%AC%E5%8D%A0%E9%94%81"><span class="toc-number">1.3.4.5.</span> <span class="toc-text">替换独占锁</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9C%A8%E4%B8%9A%E5%8A%A1%E5%85%81%E8%AE%B8%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B"><span class="toc-number">1.3.4.6.</span> <span class="toc-text">在业务允许的情况下</span></a></li></ol></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 小肥龙吃大冰淇淋</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>(()=>{
+  const $countDom = document.getElementById('twikoo-count')
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'pinglun-9gh2lmcnd8587831',
+      region: ''
+    }, null))
+  }
+
+  const getCount = () => {
+    twikoo.getCommentsCount({
+      envId: 'pinglun-9gh2lmcnd8587831',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      $countDom.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const loadTwikoo = (bool = false) => {
+    if (typeof twikoo === 'object') {
+      init()
+      bool && $countDom && setTimeout(getCount,0)
+    } else {
+      getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(()=> {
+        init()
+        bool && $countDom && setTimeout(getCount,0)
+      })
+    }
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo(true)
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script defer src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@latest/source/js/issues.min.js"></script><script src="//code.tidio.co/smwivpnwumemac2wohardi3d3gpud1ag.js" async="async"></script><script>function onTidioChatApiReady() {
+  window.tidioChatApi.hide();
+  window.tidioChatApi.on("close", function() {
+    window.tidioChatApi.hide();
+  });
+}
+if (window.tidioChatApi) {
+  window.tidioChatApi.on("ready", onTidioChatApiReady);
+} else {
+  document.addEventListener("tidioChat-ready", onTidioChatApiReady);
+}
+
+var chatBtnFn = () => {
+  document.getElementById("chat_btn").addEventListener("click", function(){
+    window.tidioChatApi.show();
+    window.tidioChatApi.open();
+  });
+}
+chatBtnFn()
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

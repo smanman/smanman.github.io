@@ -1,0 +1,431 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MongoDB建模 | 小肥龙吃大冰淇淋</title><meta name="keywords" content="NoSQL,MongoDB"><meta name="author" content="小肥龙吃大冰淇淋"><meta name="copyright" content="小肥龙吃大冰淇淋"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="MongoDB 建模MongoDB 的数据模式是一种灵活模式，关系型数据库要求你在插入数据之前必须先定义好一个表的模式结构，而 MongoDB 的集合则并不限制 document 结构。这种灵活性让对象和数据库文档之间的映射变得很容易。即使数据记录之间有很大的变化，每个文档也可以很好的映射到各条不同的记录。 当然在实际使用中，同一个集合中的文档往往都有一个比较类似的结构。 数据模型设计中最具挑战性">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MongoDB建模">
+<meta property="og:url" content="http://lvxueyang.vip/post/5a22146c.html">
+<meta property="og:site_name" content="小肥龙吃大冰淇淋">
+<meta property="og:description" content="MongoDB 建模MongoDB 的数据模式是一种灵活模式，关系型数据库要求你在插入数据之前必须先定义好一个表的模式结构，而 MongoDB 的集合则并不限制 document 结构。这种灵活性让对象和数据库文档之间的映射变得很容易。即使数据记录之间有很大的变化，每个文档也可以很好的映射到各条不同的记录。 当然在实际使用中，同一个集合中的文档往往都有一个比较类似的结构。 数据模型设计中最具挑战性">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://note-1259153703.cos.ap-nanjing.myqcloud.com/blog/bg.jpg">
+<meta property="article:published_time" content="2024-05-30T01:10:36.362Z">
+<meta property="article:modified_time" content="2022-11-27T09:16:36.721Z">
+<meta property="article:author" content="小肥龙吃大冰淇淋">
+<meta property="article:tag" content="NoSQL">
+<meta property="article:tag" content="MongoDB">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://note-1259153703.cos.ap-nanjing.myqcloud.com/blog/bg.jpg"><link rel="shortcut icon" href="https://lvxueyangboke.oss-cn-beijing.aliyuncs.com/images/20210805191028.png"><link rel="canonical" href="http://lvxueyang.vip/post/5a22146c"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'MongoDB建模',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-11-27 17:16:36'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/LVXUEYANGTiger/blog@main/ali_icon.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/LVXUEYANGTiger/blog@main/mogai.css"><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css"  media="defer" onload="this.media='all'"><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="小肥龙吃大冰淇淋" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="wizard-scene"><div class="wizard-objects"><div class="wizard-square"></div><div class="wizard-circle"></div><div class="wizard-triangle"></div></div><div class="wizard"><div class="wizard-body"></div><div class="wizard-right-arm"><div class="wizard-right-hand"></div></div><div class="wizard-left-arm"><div class="wizard-left-hand"></div></div><div class="wizard-head"><div class="wizard-beard"></div><div class="wizard-face"><div class="wizard-adds"></div></div><div class="wizard-hat"><div class="wizard-hat-of-the-hat"></div><div class="wizard-four-point-star --first"></div><div class="wizard-four-point-star --second"></div><div class="wizard-four-point-star --third"></div></div></div></div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://note-1259153703.cos.ap-nanjing.myqcloud.com/blog/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">303</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">108</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">73</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw iconfont icon-shouyex"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw iconfont icon-zuixinwenzhang_huaban"></i><span> 找文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw iconfont icon-fenlei1"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw iconfont icon-biaoqian1"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw iconfont icon-shijianzhou"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw iconfont icon-shenghuo"></i><span> 生活</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/timeline/"><i class="fa-fw iconfont icon-shijianzhou"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw iconfont icon-lianjie"></i><span> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw iconfont icon-gerenzhongxin"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://note-1259153703.cos.ap-nanjing.myqcloud.com/blog/bg.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">小肥龙吃大冰淇淋</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw iconfont icon-shouyex"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw iconfont icon-zuixinwenzhang_huaban"></i><span> 找文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw iconfont icon-fenlei1"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw iconfont icon-biaoqian1"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw iconfont icon-shijianzhou"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw iconfont icon-shenghuo"></i><span> 生活</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/timeline/"><i class="fa-fw iconfont icon-shijianzhou"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw iconfont icon-lianjie"></i><span> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw iconfont icon-gerenzhongxin"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">MongoDB建模</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-30T01:10:36.362Z" title="发表于 2024-05-30 09:10:36">2024-05-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-11-27T09:16:36.721Z" title="更新于 2022-11-27 17:16:36">2022-11-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/NoSQL/">NoSQL</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/NoSQL/MongoDB/">MongoDB</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>12分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="MongoDB建模"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="MongoDB-建模"><a href="#MongoDB-建模" class="headerlink" title="MongoDB 建模"></a>MongoDB 建模</h1><p>MongoDB 的数据模式是一种灵活模式，关系型数据库要求你在插入数据之前必须先定义好一个表的模式结构，而 MongoDB 的集合则并不限制 document 结构。这种灵活性让对象和数据库文档之间的映射变得很容易。即使数据记录之间有很大的变化，每个文档也可以很好的映射到各条不同的记录。 当然在实际使用中，同一个集合中的文档往往都有一个比较类似的结构。</p>
+<p>数据模型设计中最具挑战性的是在应用程序需求，数据库引擎性能要求和数据读写模式之间做权衡考量。当设计数据模型的时候，一定要考虑应用程序对数据的使用模式（如查询，更新和处理）以及数据本身的天然结构。</p>
+<h2 id="MongoDB-数据建模入门"><a href="#MongoDB-数据建模入门" class="headerlink" title="MongoDB 数据建模入门"></a>MongoDB 数据建模入门</h2><blockquote>
+<p>参考：<a target="_blank" rel="noopener" href="https://docs.mongodb.com/guides/server/introduction/#what-you-ll-need">https://docs.mongodb.com/guides/server/introduction/#what-you-ll-need</a></p>
+</blockquote>
+<h3 id="（一）定义数据集"><a href="#（一）定义数据集" class="headerlink" title="（一）定义数据集"></a>（一）定义数据集</h3><p>当需要建立数据存储时，首先应该思考以下问题：需要存储哪些数据？这些字段之间如何关联？</p>
+<p>这是一个数据建模的过程。目标是<strong>将业务需求抽象为逻辑模型</strong>。</p>
+<p>假设这样一个场景：我们需要建立数据库以跟踪物料及其数量，大小，标签和等级。</p>
+<p>如果是存储在 RDBMS，可能以下的数据表：</p>
+<table>
+<thead>
+<tr>
+<th align="left">name</th>
+<th align="left">quantity</th>
+<th align="left">size</th>
+<th align="left">status</th>
+<th align="left">tags</th>
+<th align="left">rating</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">journal</td>
+<td align="left">25</td>
+<td align="left">14x21,cm</td>
+<td align="left">A</td>
+<td align="left">brown, lined</td>
+<td align="left">9</td>
+</tr>
+<tr>
+<td align="left">notebook</td>
+<td align="left">50</td>
+<td align="left">8.5x11,in</td>
+<td align="left">A</td>
+<td align="left">college-ruled,perforated</td>
+<td align="left">8</td>
+</tr>
+<tr>
+<td align="left">paper</td>
+<td align="left">100</td>
+<td align="left">8.5x11,in</td>
+<td align="left">D</td>
+<td align="left">watercolor</td>
+<td align="left">10</td>
+</tr>
+<tr>
+<td align="left">planner</td>
+<td align="left">75</td>
+<td align="left">22.85x30,cm</td>
+<td align="left">D</td>
+<td align="left">2019</td>
+<td align="left">10</td>
+</tr>
+<tr>
+<td align="left">postcard</td>
+<td align="left">45</td>
+<td align="left">10x,cm</td>
+<td align="left">D</td>
+<td align="left">double-sided,white</td>
+<td align="left">2</td>
+</tr>
+</tbody></table>
+<h3 id="（二）思考-JSON-结构"><a href="#（二）思考-JSON-结构" class="headerlink" title="（二）思考 JSON 结构"></a>（二）思考 JSON 结构</h3><p>从上例中可以看出，表似乎是存储数据的好地方，但该数据集中的字段需要多个值，如果在单个列中建模，则不容易搜索或显示（对于 例如–大小和标签）。</p>
+<p>在 SQL 数据库中，您可以通过创建关系表来解决此问题。</p>
+<p>在 MongoDB 中，数据存储为文档（document）。 这些文档以 JSON（JavaScript 对象表示法）格式存储在 MongoDB 中。 JSON 文档支持嵌入式字段，因此相关数据和数据列表可以与文档一起存储，而不是与外部表一起存储。</p>
+<p>JSON 格式为键/值对。 在 JSON 文档中，字段名和值用冒号分隔，字段名和值对用逗号分隔，并且字段集封装在“大括号”（<code>&#123;&#125;</code>）中。</p>
+<p>如果要开始对上面的行之一进行建模，例如此行：</p>
+<table>
+<thead>
+<tr>
+<th align="left">name</th>
+<th align="left">quantity</th>
+<th align="left">size</th>
+<th align="left">status</th>
+<th align="left">tags</th>
+<th align="left">rating</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">notebook</td>
+<td align="left">50</td>
+<td align="left">8.5x11,in</td>
+<td align="left">A</td>
+<td align="left">college-ruled,perforated</td>
+<td align="left">8</td>
+</tr>
+</tbody></table>
+<p>您可以从 name 和 quantity 字段开始。 在 JSON 中，这些字段如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123; &quot;name&quot;: &quot;notebook&quot;, &quot;qty&quot;: 50 &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="（三）确定哪些字段作为嵌入式数据"><a href="#（三）确定哪些字段作为嵌入式数据" class="headerlink" title="（三）确定哪些字段作为嵌入式数据"></a>（三）确定哪些字段作为嵌入式数据</h3><p>接下来，需要确定哪些字段可能需要多个值。可以考虑将这些字段作为嵌入式文档或嵌入式文档中的 列表/数组 对象。</p>
+<p>例如，在上面的示例中，size 可能包含三个字段：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&#123; &quot;h&quot;: 11, &quot;w&quot;: 8.5, &quot;uom&quot;: &quot;in&quot; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>And some items have multiple ratings, so <code>ratings</code> might be represented as a list of documents containing the field <code>scores</code>:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[&#123; &quot;score&quot;: 8 &#125;, &#123; &quot;score&quot;: 9 &#125;]</span><br></pre></td></tr></table></figure>
+
+<p>And you might need to handle multiple tags per item. So you might store them in a list too.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[&quot;college-ruled&quot;, &quot;perforated&quot;]</span><br></pre></td></tr></table></figure>
+
+<p>Finally, a JSON document that stores an inventory item might look like this:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;notebook&quot;,</span><br><span class="line">  &quot;qty&quot;: 50,</span><br><span class="line">  &quot;rating&quot;: [&#123; &quot;score&quot;: 8 &#125;, &#123; &quot;score&quot;: 9 &#125;],</span><br><span class="line">  &quot;size&quot;: &#123; &quot;height&quot;: 11, &quot;width&quot;: 8.5, &quot;unit&quot;: &quot;in&quot; &#125;,</span><br><span class="line">  &quot;status&quot;: &quot;A&quot;,</span><br><span class="line">  &quot;tags&quot;: [&quot;college-ruled&quot;, &quot;perforated&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>This looks very different from the tabular data structure you started with in Step 1.</p>
+<h2 id="数据模型简介"><a href="#数据模型简介" class="headerlink" title="数据模型简介"></a>数据模型简介</h2><p>数据建模中的关键挑战是平衡应用程序的需求、数据库引擎的性能以及数据检索模式。 在设计数据模型时，始终需要考虑数据的应用程序使用情况（即数据的查询，更新和处理）以及数据本身的固有结构。</p>
+<h3 id="灵活的-Schema"><a href="#灵活的-Schema" class="headerlink" title="灵活的 Schema"></a>灵活的 Schema</h3><p>在关系型数据库中，必须在插入数据之前确定并声明表的结构。而 MongoDB 的 collection 默认情况下不需要其文档具有相同的架构。也就是说：</p>
+<p>同一个 collection 中的 document 不需要具有相同的 field 集，并且 field 的数据类型可以在集合中的不同文档之间有所不同。</p>
+<p>要更改 collection 中的 document 结构，例如添加新 field，删除现有 field 或将 field 值更改为新类型，只需要将文档更新为新结构即可。</p>
+<p>这种灵活性有助于将 document 映射到实体或对象。每个 document 都可以匹配所表示实体的数据字段，即使该文档与集合中的其他文档有很大的不同。但是，实际上，集合中的文档具有相似的结构，并且您可以在更新和插入操作期间对 collection 强制执行 document 校验规则。</p>
+<h3 id="Document-结构"><a href="#Document-结构" class="headerlink" title="Document 结构"></a>Document 结构</h3><h4 id="嵌入式数据模型"><a href="#嵌入式数据模型" class="headerlink" title="嵌入式数据模型"></a>嵌入式数据模型</h4><p>嵌入式 document 通过将相关数据存储在单个 document 结构中来捕获数据之间的关系。 MongoDB document 可以将 document 结构嵌入到另一个 document 中的字段或数组中。这些非规范化的数据模型允许应用程序在单个数据库操作中检索和操纵相关数据。</p>
+<p><img src="https://note-1259153703.cos.ap-nanjing.myqcloud.com/images/202204140920279.png" alt="20200910193231"></p>
+<p>对于 MongoDB 中的很多场景，非规范化数据模型都是最佳的。</p>
+<blockquote>
+<p>嵌入式 document 有大小限制：必须小于 16 MB。</p>
+<p>如果是较大的二进制数据，可以考虑 <a target="_blank" rel="noopener" href="https://docs.mongodb.com/manual/core/gridfs/">GridFS</a>。</p>
+</blockquote>
+<h4 id="引用式数据模型"><a href="#引用式数据模型" class="headerlink" title="引用式数据模型"></a>引用式数据模型</h4><p>引用通过包含从一个 document 到另一个 document 的链接或引用来存储数据之间的关系。 应用程序可以解析这些引用以访问相关数据。 广义上讲，这些是规范化的数据模型。</p>
+<p><img src="https://note-1259153703.cos.ap-nanjing.myqcloud.com/images/202204140922844.png" alt="20200910193234"></p>
+<p>通常，在以下场景使用引用式的数据模型：</p>
+<ul>
+<li>嵌入时会导致数据重复，但无法提供足够的读取性能优势，无法胜过重复的含义。</li>
+<li>代表更复杂的多对多关系。</li>
+<li>为大规模分层数据集建模。</li>
+</ul>
+<p>为了 join collection，MongoDB 支持聚合 stage：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.mongodb.com/manual/reference/operator/aggregation/lookup/#pipe._S_lookup"><code>$lookup</code></a>（MongoDB 3.2 开始支持）</li>
+<li><a target="_blank" rel="noopener" href="https://docs.mongodb.com/manual/reference/operator/aggregation/graphLookup/#pipe._S_graphLookup"><code>$graphLookup</code></a>（MongoDB 3.4 开始支持）</li>
+</ul>
+<p>MongoDB 还提供了引用来支持跨集合 join 数据：</p>
+<ul>
+<li>引用数据模型示例，参考：<a target="_blank" rel="noopener" href="https://docs.mongodb.com/manual/tutorial/model-referenced-one-to-many-relationships-between-documents/#data-modeling-publisher-and-books">Model One-to-Many Relationships with Document References</a>.</li>
+<li>更多树形模型，参考：<a target="_blank" rel="noopener" href="https://docs.mongodb.com/manual/applications/data-models-tree-structures/">Model Tree Structures</a>.</li>
+</ul>
+<h3 id="原子写操作"><a href="#原子写操作" class="headerlink" title="原子写操作"></a>原子写操作</h3><h4 id="单-document-的原子性"><a href="#单-document-的原子性" class="headerlink" title="单 document 的原子性"></a>单 document 的原子性</h4><p>在 MongoDB 中，针对单个 document 的写操作是原子性的，即使该 document 中嵌入了多个子 document。 具有嵌入数据的非规范化数据模型将所有相关数据合并在一个 document 中，而不是在多个 document 和 collection 中进行规范化。 该数据模型有助于原子操作。 当单个写入操作（例如 <a target="_blank" rel="noopener" href="https://docs.mongodb.com/manual/reference/method/db.collection.updateMany/#db.collection.updateMany"><code>db.collection.updateMany()</code></a>）修改多个 document 时，每个 document 的独立修改是原子的，但整个操作不是原子的。</p>
+<h4 id="多-document-事务"><a href="#多-document-事务" class="headerlink" title="多 document 事务"></a>多 document 事务</h4><p>对于需要对多个 document（在单个或多个集合中）进行读写原子性的情况，MongoDB 支持多 document 事务。</p>
+<ul>
+<li>在版本 4.0 中，MongoDB 在副本集上支持多 document 事务。</li>
+<li>在版本 4.2 中，MongoDB 引入了分布式事务，它增加了对分片群集上多 document 事务的支持，并合并了对副本集上多 document 事务的现有支持。</li>
+</ul>
+<blockquote>
+<p>在大多数情况下，多 document 事务会比单 document 的写入产生更高的性能消耗，并且多 document 事务的可用性不能替代高效的结构设计。 在许多情况下，非规范化数据模型（嵌入式 document 和数组）仍是最佳选择。 也就是说，合理的数据建模，将最大程度地减少对多 document 事务的需求。</p>
+</blockquote>
+<h3 id="数据使用和性能"><a href="#数据使用和性能" class="headerlink" title="数据使用和性能"></a>数据使用和性能</h3><p>在设计数据模型时，请考虑应用程序将如何使用您的数据库。 例如，如果您的应用程序仅使用最近插入的 document，请考虑使用上限集合。 或者，如果您的应用程序主要是对 collection 的读取操作，则添加索引以提高性能。</p>
+<h2 id="Schema-校验"><a href="#Schema-校验" class="headerlink" title="Schema 校验"></a>Schema 校验</h2><h3 id="指定校验规则"><a href="#指定校验规则" class="headerlink" title="指定校验规则"></a>指定校验规则</h3><p>如果创建新 collection 时要指定校验规则，需要在使用 <a target="_blank" rel="noopener" href="https://docs.mongodb.com/manual/reference/method/db.createCollection/#db.createCollection"><code>db.createCollection()</code></a> 时指定 <code>validator</code> 选项。</p>
+<p>如果要将 document 校验添加到现有 collection 中，需要使用带有 <code>validator</code> 选项的 <a target="_blank" rel="noopener" href="https://docs.mongodb.com/manual/reference/command/collMod/#dbcmd.collMod"><code>collMod</code></a> 命令。</p>
+<p>MongoDB 还提供以下相关选项：</p>
+<ul>
+<li><code>validationLevel</code> 选项（用于确定 MongoDB 在更新过程中，对现有 document 应用校验规则的严格程度）</li>
+<li><code>validationAction</code> 选项（用于确定 MongoDB 发现违反校验规则的 document 时，是选择报错并拒绝，还是接受数据但在日志中告警）。</li>
+</ul>
+<h3 id="JSON-Schema"><a href="#JSON-Schema" class="headerlink" title="JSON Schema"></a>JSON Schema</h3><p>从 3.6 版本开始，MongoDB 开始支持 JSON Schema 校验。</p>
+<p>可以通过在 validator 表达式中使用 <a target="_blank" rel="noopener" href="https://docs.mongodb.com/manual/reference/operator/query/jsonSchema/#op._S_jsonSchema"><code>$jsonSchema</code></a> 操作来指定 JSON Schema 校验。</p>
+<p>【示例】</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.createCollection(&#x27;students&#x27;, &#123;</span><br><span class="line">  validator: &#123;</span><br><span class="line">    $jsonSchema: &#123;</span><br><span class="line">      bsonType: &#x27;object&#x27;,</span><br><span class="line">      required: [&#x27;name&#x27;, &#x27;year&#x27;, &#x27;major&#x27;, &#x27;address&#x27;],</span><br><span class="line">      properties: &#123;</span><br><span class="line">        name: &#123;</span><br><span class="line">          bsonType: &#x27;string&#x27;,</span><br><span class="line">          description: &#x27;must be a string and is required&#x27;,</span><br><span class="line">        &#125;,</span><br><span class="line">        year: &#123;</span><br><span class="line">          bsonType: &#x27;int&#x27;,</span><br><span class="line">          minimum: 2017,</span><br><span class="line">          maximum: 3017,</span><br><span class="line">          description: &#x27;must be an integer in [ 2017, 3017 ] and is required&#x27;,</span><br><span class="line">        &#125;,</span><br><span class="line">        major: &#123;</span><br><span class="line">          enum: [&#x27;Math&#x27;, &#x27;English&#x27;, &#x27;Computer Science&#x27;, &#x27;History&#x27;, null],</span><br><span class="line">          description: &#x27;can only be one of the enum values and is required&#x27;,</span><br><span class="line">        &#125;,</span><br><span class="line">        gpa: &#123;</span><br><span class="line">          bsonType: [&#x27;double&#x27;],</span><br><span class="line">          description: &#x27;must be a double if the field exists&#x27;,</span><br><span class="line">        &#125;,</span><br><span class="line">        address: &#123;</span><br><span class="line">          bsonType: &#x27;object&#x27;,</span><br><span class="line">          required: [&#x27;city&#x27;],</span><br><span class="line">          properties: &#123;</span><br><span class="line">            street: &#123;</span><br><span class="line">              bsonType: &#x27;string&#x27;,</span><br><span class="line">              description: &#x27;must be a string if the field exists&#x27;,</span><br><span class="line">            &#125;,</span><br><span class="line">            city: &#123;</span><br><span class="line">              bsonType: &#x27;string&#x27;,</span><br><span class="line">              description: &#x27;must be a string and is required&#x27;,</span><br><span class="line">            &#125;,</span><br><span class="line">          &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="其它查询表达式"><a href="#其它查询表达式" class="headerlink" title="其它查询表达式"></a>其它查询表达式</h3><p>除了使用 <a target="_blank" rel="noopener" href="https://docs.mongodb.com/manual/reference/operator/query/jsonSchema/#op._S_jsonSchema"><code>$jsonSchema</code></a> 查询运算符的 JSON Schema 校验外，MongoDB 还支持其它查询运算符的校验，但以下情况除外：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.mongodb.com/manual/reference/operator/query/near/#op._S_near"><code>$near</code></a>,</li>
+<li><a target="_blank" rel="noopener" href="https://docs.mongodb.com/manual/reference/operator/query/nearSphere/#op._S_nearSphere"><code>$nearSphere</code></a>,</li>
+<li><a target="_blank" rel="noopener" href="https://docs.mongodb.com/manual/reference/operator/query/text/#op._S_text"><code>$text</code></a>,</li>
+<li><a target="_blank" rel="noopener" href="https://docs.mongodb.com/manual/reference/operator/query/where/#op._S_where"><code>$where</code></a>, and</li>
+<li>带有 <a target="_blank" rel="noopener" href="https://docs.mongodb.com/manual/reference/operator/aggregation/function/#exp._S_function"><code>$function</code></a> 表达式的 <a target="_blank" rel="noopener" href="https://docs.mongodb.com/manual/reference/operator/query/expr/#op._S_expr"><code>$expr</code></a></li>
+</ul>
+<p>【示例】查询表达式中指定校验规则</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.createCollection(&#x27;contacts&#x27;, &#123;</span><br><span class="line">  validator: &#123;</span><br><span class="line">    $or: [</span><br><span class="line">      &#123; phone: &#123; $type: &#x27;string&#x27; &#125; &#125;,</span><br><span class="line">      &#123; email: &#123; $regex: /@mongodb\.com$/ &#125; &#125;,</span><br><span class="line">      &#123; status: &#123; $in: [&#x27;Unknown&#x27;, &#x27;Incomplete&#x27;] &#125; &#125;,</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="行为"><a href="#行为" class="headerlink" title="行为"></a>行为</h3><p>校验发生在更新和插入期间。添加校验规则到 collection 时，不会对现有的 document 进行校验，除非发生修改操作。</p>
+<h4 id="现有的-document"><a href="#现有的-document" class="headerlink" title="现有的 document"></a>现有的 document</h4><p><code>validationLevel</code> 选项确定 MongoDB 进行规则校验时执行的操作：</p>
+<ul>
+<li>如果 <code>validationLevel</code> 是 strict（严格级别。这是 MongoDB 默认级别），则 MongoDB 将校验规则应用于所有插入和更新。</li>
+<li>如果 <code>validationLevel</code> 是 moderate（中等级别），则 MongoDB 只对已满足校验条件的现有文档的插入和更新操作进行校验；对不符合校验标准的现有文档的更新操作不进行校验。</li>
+</ul>
+<p>【示例】</p>
+<p>下面是一个正常的插入操作：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.contacts.insert([</span><br><span class="line">  &#123;</span><br><span class="line">    _id: 1,</span><br><span class="line">    name: &#x27;Anne&#x27;,</span><br><span class="line">    phone: &#x27;+1 555 123 456&#x27;,</span><br><span class="line">    city: &#x27;London&#x27;,</span><br><span class="line">    status: &#x27;Complete&#x27;,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123; _id: 2, name: &#x27;Ivan&#x27;, city: &#x27;Vancouver&#x27; &#125;,</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
+
+<p>在 collection 上配置一个校验规则：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.runCommand(&#123;</span><br><span class="line">  collMod: &#x27;contacts&#x27;,</span><br><span class="line">  validator: &#123;</span><br><span class="line">    $jsonSchema: &#123;</span><br><span class="line">      bsonType: &#x27;object&#x27;,</span><br><span class="line">      required: [&#x27;phone&#x27;, &#x27;name&#x27;],</span><br><span class="line">      properties: &#123;</span><br><span class="line">        phone: &#123;</span><br><span class="line">          bsonType: &#x27;string&#x27;,</span><br><span class="line">          description: &#x27;must be a string and is required&#x27;,</span><br><span class="line">        &#125;,</span><br><span class="line">        name: &#123;</span><br><span class="line">          bsonType: &#x27;string&#x27;,</span><br><span class="line">          description: &#x27;must be a string and is required&#x27;,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  validationLevel: &#x27;moderate&#x27;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>则 <code>contacts</code> collection 现在添加了含中等级别（moderate） validationLevel 的 <code>validator</code>：</p>
+<ul>
+<li>如果尝试更新 <code>_id</code>为 1 的文档，则 MongoDB 将应用校验规则，因为现有文档符合条件。</li>
+<li>相反，MongoDB 不会将校验 <code>_id</code> 为 2 的文档，因为它不符合校验规则。</li>
+</ul>
+<p>如果要完全禁用校验，可以将 <code>validationLevel</code> 置为 <code>off</code>。</p>
+<h4 id="接受或拒绝无效的-document"><a href="#接受或拒绝无效的-document" class="headerlink" title="接受或拒绝无效的 document"></a>接受或拒绝无效的 document</h4><ul>
+<li>如果 validationAction 是 Error（默认），则 MongoDB 拒绝任何违反校验规则的插入或更新。</li>
+<li>如果 validationAction 是 Warn，MongoDB 会记录所有的违规，但允许进行插入或更新。</li>
+</ul>
+<p>【示例】</p>
+<p>创建集合时，配置 <code>validationAction</code> 为 warn。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.createCollection(&#x27;contacts2&#x27;, &#123;</span><br><span class="line">  validator: &#123;</span><br><span class="line">    $jsonSchema: &#123;</span><br><span class="line">      bsonType: &#x27;object&#x27;,</span><br><span class="line">      required: [&#x27;phone&#x27;],</span><br><span class="line">      properties: &#123;</span><br><span class="line">        phone: &#123;</span><br><span class="line">          bsonType: &#x27;string&#x27;,</span><br><span class="line">          description: &#x27;must be a string and is required&#x27;,</span><br><span class="line">        &#125;,</span><br><span class="line">        email: &#123;</span><br><span class="line">          bsonType: &#x27;string&#x27;,</span><br><span class="line">          pattern: &#x27;@mongodb.com$&#x27;,</span><br><span class="line">          description:</span><br><span class="line">            &#x27;must be a string and match the regular expression pattern&#x27;,</span><br><span class="line">        &#125;,</span><br><span class="line">        status: &#123;</span><br><span class="line">          enum: [&#x27;Unknown&#x27;, &#x27;Incomplete&#x27;],</span><br><span class="line">          description: &#x27;can only be one of the enum values&#x27;,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  validationAction: &#x27;warn&#x27;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>尝试插入一条违规记录</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> db.contacts2.insert( &#123; name: <span class="string">&quot;Amanda&quot;</span>, status: <span class="string">&quot;Updated&quot;</span> &#125; )</span></span><br><span class="line">WriteResult(&#123; &quot;nInserted&quot; : 1 &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>MongoDB 允许这条操作执行，但是服务器会记录下告警信息。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&#123;&quot;t&quot;:&#123;&quot;$date&quot;:&quot;2020-09-11T16:35:57.754+08:00&quot;&#125;,&quot;s&quot;:&quot;W&quot;,  &quot;c&quot;:&quot;STORAGE&quot;,  &quot;id&quot;:20294,   &quot;ctx&quot;:&quot;conn14&quot;,&quot;msg&quot;:&quot;Document would fail validation&quot;,&quot;attr&quot;:&#123;&quot;namespace&quot;:&quot;test.contacts2&quot;,&quot;document&quot;:&#123;&quot;_id&quot;:&#123;&quot;$oid&quot;:&quot;5f5b36ed8ea53d62a0b51c4e&quot;&#125;,&quot;name&quot;:&quot;Amanda&quot;,&quot;status&quot;:&quot;Updated&quot;&#125;&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h4><p>不能在 <code>admin</code>、<code>local</code>、<code>config</code> 这几个特殊的数据库中指定校验规则。</p>
+<p>不能在 <code>system.*</code> collection 中指定校验。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">小肥龙吃大冰淇淋</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://lvxueyang.vip/post/5a22146c.html">http://lvxueyang.vip/post/5a22146c.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://lvxueyang.vip" target="_blank">小肥龙吃大冰淇淋</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/NoSQL/">NoSQL</a><a class="post-meta__tags" href="/tags/MongoDB/">MongoDB</a></div><div class="post_share"><div class="social-share" data-image="https://note-1259153703.cos.ap-nanjing.myqcloud.com/blog/bg.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/LVXUEYANGTiger/blog@main/mm_facetoface_collect_qrcode_1628169825807.png" target="_blank"><img class="post-qr-code-img" src="https://cdn.jsdelivr.net/gh/LVXUEYANGTiger/blog@main/mm_facetoface_collect_qrcode_1628169825807.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/LVXUEYANGTiger/blog@main/1628169797.jpg" target="_blank"><img class="post-qr-code-img" src="https://cdn.jsdelivr.net/gh/LVXUEYANGTiger/blog@main/1628169797.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/2c424ebd.html"><img class="prev-cover" src="https://note-1259153703.cos.ap-nanjing.myqcloud.com/blog/bg.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">MongoDB应用</div></div></a></div><div class="next-post pull-right"><a href="/post/10d00669.html"><img class="next-cover" src="https://note-1259153703.cos.ap-nanjing.myqcloud.com/blog/bg.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">JAVA阻塞队列实现</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/5d593c3c.html" title="MongoDB架构"><img class="cover" src="https://note-1259153703.cos.ap-nanjing.myqcloud.com/blog/bg.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-30</div><div class="title">MongoDB架构</div></div></a></div><div><a href="/post/415f68f2.html" title="MongoDB安全认证"><img class="cover" src="https://note-1259153703.cos.ap-nanjing.myqcloud.com/blog/bg.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-30</div><div class="title">MongoDB安全认证</div></div></a></div><div><a href="/post/c32aa451.html" title="MongoDB集群高可用"><img class="cover" src="https://note-1259153703.cos.ap-nanjing.myqcloud.com/blog/bg.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-30</div><div class="title">MongoDB集群高可用</div></div></a></div><div><a href="/post/2c424ebd.html" title="MongoDB应用"><img class="cover" src="https://note-1259153703.cos.ap-nanjing.myqcloud.com/blog/bg.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-30</div><div class="title">MongoDB应用</div></div></a></div><div><a href="/post/7d584b4.html" title="Neo4j高级应用"><img class="cover" src="https://note-1259153703.cos.ap-nanjing.myqcloud.com/blog/bg.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-30</div><div class="title">Neo4j高级应用</div></div></a></div><div><a href="/post/e0e0581e.html" title="图和Neo4j"><img class="cover" src="https://note-1259153703.cos.ap-nanjing.myqcloud.com/blog/bg.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-30</div><div class="title">图和Neo4j</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MongoDB-%E5%BB%BA%E6%A8%A1"><span class="toc-number">1.</span> <span class="toc-text">MongoDB 建模</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#MongoDB-%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E5%85%A5%E9%97%A8"><span class="toc-number">1.1.</span> <span class="toc-text">MongoDB 数据建模入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-number">1.1.1.</span> <span class="toc-text">（一）定义数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E6%80%9D%E8%80%83-JSON-%E7%BB%93%E6%9E%84"><span class="toc-number">1.1.2.</span> <span class="toc-text">（二）思考 JSON 结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%88%E4%B8%89%EF%BC%89%E7%A1%AE%E5%AE%9A%E5%93%AA%E4%BA%9B%E5%AD%97%E6%AE%B5%E4%BD%9C%E4%B8%BA%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%95%B0%E6%8D%AE"><span class="toc-number">1.1.3.</span> <span class="toc-text">（三）确定哪些字段作为嵌入式数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B%E7%AE%80%E4%BB%8B"><span class="toc-number">1.2.</span> <span class="toc-text">数据模型简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%81%B5%E6%B4%BB%E7%9A%84-Schema"><span class="toc-number">1.2.1.</span> <span class="toc-text">灵活的 Schema</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Document-%E7%BB%93%E6%9E%84"><span class="toc-number">1.2.2.</span> <span class="toc-text">Document 结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">嵌入式数据模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E5%BC%8F%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">引用式数据模型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E5%AD%90%E5%86%99%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.3.</span> <span class="toc-text">原子写操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95-document-%E7%9A%84%E5%8E%9F%E5%AD%90%E6%80%A7"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">单 document 的原子性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A-document-%E4%BA%8B%E5%8A%A1"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">多 document 事务</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%BD%BF%E7%94%A8%E5%92%8C%E6%80%A7%E8%83%BD"><span class="toc-number">1.2.4.</span> <span class="toc-text">数据使用和性能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Schema-%E6%A0%A1%E9%AA%8C"><span class="toc-number">1.3.</span> <span class="toc-text">Schema 校验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E5%AE%9A%E6%A0%A1%E9%AA%8C%E8%A7%84%E5%88%99"><span class="toc-number">1.3.1.</span> <span class="toc-text">指定校验规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JSON-Schema"><span class="toc-number">1.3.2.</span> <span class="toc-text">JSON Schema</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E5%AE%83%E6%9F%A5%E8%AF%A2%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">1.3.3.</span> <span class="toc-text">其它查询表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%8C%E4%B8%BA"><span class="toc-number">1.3.4.</span> <span class="toc-text">行为</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%8E%B0%E6%9C%89%E7%9A%84-document"><span class="toc-number">1.3.4.1.</span> <span class="toc-text">现有的 document</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A5%E5%8F%97%E6%88%96%E6%8B%92%E7%BB%9D%E6%97%A0%E6%95%88%E7%9A%84-document"><span class="toc-number">1.3.4.2.</span> <span class="toc-text">接受或拒绝无效的 document</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%99%90%E5%88%B6"><span class="toc-number">1.3.4.3.</span> <span class="toc-text">限制</span></a></li></ol></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 小肥龙吃大冰淇淋</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>(()=>{
+  const $countDom = document.getElementById('twikoo-count')
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'pinglun-9gh2lmcnd8587831',
+      region: ''
+    }, null))
+  }
+
+  const getCount = () => {
+    twikoo.getCommentsCount({
+      envId: 'pinglun-9gh2lmcnd8587831',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      $countDom.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const loadTwikoo = (bool = false) => {
+    if (typeof twikoo === 'object') {
+      init()
+      bool && $countDom && setTimeout(getCount,0)
+    } else {
+      getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(()=> {
+        init()
+        bool && $countDom && setTimeout(getCount,0)
+      })
+    }
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo(true)
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script defer src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@latest/source/js/issues.min.js"></script><script src="//code.tidio.co/smwivpnwumemac2wohardi3d3gpud1ag.js" async="async"></script><script>function onTidioChatApiReady() {
+  window.tidioChatApi.hide();
+  window.tidioChatApi.on("close", function() {
+    window.tidioChatApi.hide();
+  });
+}
+if (window.tidioChatApi) {
+  window.tidioChatApi.on("ready", onTidioChatApiReady);
+} else {
+  document.addEventListener("tidioChat-ready", onTidioChatApiReady);
+}
+
+var chatBtnFn = () => {
+  document.getElementById("chat_btn").addEventListener("click", function(){
+    window.tidioChatApi.show();
+    window.tidioChatApi.open();
+  });
+}
+chatBtnFn()
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
