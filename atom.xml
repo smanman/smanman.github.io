@@ -1,562 +1,603 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>小肥龙吃大冰淇淋</title>
-  <icon>https://pengdanhua.github.io/icon.png</icon>
+  <title>满天鑫</title>
+  <icon>https://smanman.github.io/icon.png</icon>
   <subtitle>有些梦想虽然遥不可及，但不是不可能实现。只要我足够的强。</subtitle>
-  <link href="https://pengdanhua.github.io/atom.xml" rel="self"/>
+  <link href="https://smanman.github.io/atom.xml" rel="self"/>
   
-  <link href="https://pengdanhua.github.io/"/>
-  <updated>2022-11-27T09:16:41.685Z</updated>
-  <id>https://pengdanhua.github.io/</id>
+  <link href="https://smanman.github.io/"/>
+  <updated>2022-11-27T09:16:29.828Z</updated>
+  <id>https://smanman.github.io/</id>
   
   <author>
-    <name>小肥龙吃大冰淇淋</name>
+    <name>满天鑫</name>
     
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Springboot自定义启动器</title>
-    <link href="https://pengdanhua.github.io/post/1e36501a.html"/>
-    <id>https://pengdanhua.github.io/post/1e36501a.html</id>
-    <published>2024-05-30T01:10:36.502Z</published>
-    <updated>2022-11-27T09:16:41.685Z</updated>
+    <title>Ajax快速入门</title>
+    <link href="https://smanman.github.io/post/2c6eee95.html"/>
+    <id>https://smanman.github.io/post/2c6eee95.html</id>
+    <published>2021-12-08T07:27:00.000Z</published>
+    <updated>2022-11-27T09:16:29.828Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;什么是Stater&quot;&gt;&lt;a href=&quot;#什么是Stater&quot; class=&quot;headerlink&quot; title=&quot;什么是Stater&quot;&gt;&lt;/a&gt;什么是Stater&lt;/h3&gt;&lt;p&gt; Spring Boot</summary>
+    <summary type="html">&lt;h1 id=&quot;1、Ajax快速入门&quot;&gt;&lt;a href=&quot;#1、Ajax快速入门&quot; class=&quot;headerlink&quot; title=&quot;1、Ajax快速入门&quot;&gt;&lt;/a&gt;1、Ajax快速入门&lt;/h1&gt;&lt;h2 id=&quot;1-1、AJAX介绍&quot;&gt;&lt;a</summary>
         
       
     
     
     
-    <category term="java学习" scheme="https://pengdanhua.github.io/categories/java%E5%AD%A6%E4%B9%A0/"/>
+    <category term="java学习" scheme="https://smanman.github.io/categories/java%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="Springboot" scheme="https://pengdanhua.github.io/categories/java%E5%AD%A6%E4%B9%A0/Springboot/"/>
+    <category term="Ajax快速入门" scheme="https://smanman.github.io/categories/java%E5%AD%A6%E4%B9%A0/Ajax%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/"/>
     
     
-    <category term="Springboot" scheme="https://pengdanhua.github.io/tags/Springboot/"/>
+    <category term="Ajax" scheme="https://smanman.github.io/tags/Ajax/"/>
     
   </entry>
   
   <entry>
-    <title>Springboot简介</title>
-    <link href="https://pengdanhua.github.io/post/8c0643da.html"/>
-    <id>https://pengdanhua.github.io/post/8c0643da.html</id>
-    <published>2024-05-30T01:10:36.501Z</published>
-    <updated>2022-11-27T09:16:41.643Z</updated>
+    <title>Node 第 7 天笔记</title>
+    <link href="https://smanman.github.io/post/72d799e.html"/>
+    <id>https://smanman.github.io/post/72d799e.html</id>
+    <published>2021-11-19T14:43:00.000Z</published>
+    <updated>2022-02-14T06:21:14.278Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;Spring-Boot概述&quot;&gt;&lt;a href=&quot;#Spring-Boot概述&quot; class=&quot;headerlink&quot; title=&quot;Spring Boot概述&quot;&gt;&lt;/a&gt;Spring Boot概述&lt;/h3&gt;&lt;p&gt; Spring</summary>
+    <summary type="html">&lt;h2 id=&quot;Node-第-7-天&quot;&gt;&lt;a href=&quot;#Node-第-7-天&quot; class=&quot;headerlink&quot; title=&quot;Node 第 7 天&quot;&gt;&lt;/a&gt;Node 第 7 天&lt;/h2&gt;&lt;h3 id=&quot;1-学习目标&quot;&gt;&lt;a href=&quot;#1-学习目标&quot;</summary>
         
       
     
     
     
-    <category term="java学习" scheme="https://pengdanhua.github.io/categories/java%E5%AD%A6%E4%B9%A0/"/>
+    <category term="前端" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="Springboot" scheme="https://pengdanhua.github.io/categories/java%E5%AD%A6%E4%B9%A0/Springboot/"/>
+    <category term="Node" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/Node/"/>
     
     
-    <category term="Springboot" scheme="https://pengdanhua.github.io/tags/Springboot/"/>
+    <category term="前端" scheme="https://smanman.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="Node" scheme="https://smanman.github.io/tags/Node/"/>
     
   </entry>
   
   <entry>
-    <title>Springboot整合模板引擎</title>
-    <link href="https://pengdanhua.github.io/post/aade4ca7.html"/>
-    <id>https://pengdanhua.github.io/post/aade4ca7.html</id>
-    <published>2024-05-30T01:10:36.500Z</published>
-    <updated>2022-11-27T09:16:41.601Z</updated>
+    <title>Node 第 8 天笔记</title>
+    <link href="https://smanman.github.io/post/94d58d58.html"/>
+    <id>https://smanman.github.io/post/94d58d58.html</id>
+    <published>2021-11-19T14:43:00.000Z</published>
+    <updated>2022-11-27T09:16:38.989Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;整合Freemarker&quot;&gt;&lt;a href=&quot;#整合Freemarker&quot; class=&quot;headerlink&quot; title=&quot;整合Freemarker&quot;&gt;&lt;/a&gt;整合Freemarker&lt;/h3&gt;&lt;h4 id=&quot;Freemarker简介&quot;&gt;&lt;a</summary>
+    <summary type="html">&lt;h2 id=&quot;Node-第-8-天&quot;&gt;&lt;a href=&quot;#Node-第-8-天&quot; class=&quot;headerlink&quot; title=&quot;Node 第 8 天&quot;&gt;&lt;/a&gt;Node 第 8 天&lt;/h2&gt;&lt;h3 id=&quot;1-学习目标&quot;&gt;&lt;a href=&quot;#1-学习目标&quot;</summary>
         
       
     
     
     
-    <category term="java学习" scheme="https://pengdanhua.github.io/categories/java%E5%AD%A6%E4%B9%A0/"/>
+    <category term="前端" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="Springboot" scheme="https://pengdanhua.github.io/categories/java%E5%AD%A6%E4%B9%A0/Springboot/"/>
+    <category term="Node" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/Node/"/>
     
     
-    <category term="Springboot" scheme="https://pengdanhua.github.io/tags/Springboot/"/>
+    <category term="前端" scheme="https://smanman.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="Node" scheme="https://smanman.github.io/tags/Node/"/>
     
   </entry>
   
   <entry>
-    <title>Springboot整合web组件</title>
-    <link href="https://pengdanhua.github.io/post/103f5083.html"/>
-    <id>https://pengdanhua.github.io/post/103f5083.html</id>
-    <published>2024-05-30T01:10:36.499Z</published>
-    <updated>2022-11-27T09:16:41.563Z</updated>
+    <title>Node 第 6 天笔记</title>
+    <link href="https://smanman.github.io/post/c6a3a65e.html"/>
+    <id>https://smanman.github.io/post/c6a3a65e.html</id>
+    <published>2021-11-19T14:42:00.000Z</published>
+    <updated>2022-11-27T09:16:38.946Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;整合Servlet、Filter、Listener&quot;&gt;&lt;a href=&quot;#整合Servlet、Filter、Listener&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;Node-第-6-天&quot;&gt;&lt;a href=&quot;#Node-第-6-天&quot; class=&quot;headerlink&quot; title=&quot;Node 第 6 天&quot;&gt;&lt;/a&gt;Node 第 6 天&lt;/h2&gt;&lt;h3 id=&quot;1-学习目标&quot;&gt;&lt;a href=&quot;#1-学习目标&quot;</summary>
         
       
     
     
     
-    <category term="java学习" scheme="https://pengdanhua.github.io/categories/java%E5%AD%A6%E4%B9%A0/"/>
+    <category term="前端" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="Springboot" scheme="https://pengdanhua.github.io/categories/java%E5%AD%A6%E4%B9%A0/Springboot/"/>
+    <category term="Node" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/Node/"/>
     
     
-    <category term="Springboot" scheme="https://pengdanhua.github.io/tags/Springboot/"/>
+    <category term="前端" scheme="https://smanman.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="Node" scheme="https://smanman.github.io/tags/Node/"/>
     
   </entry>
   
   <entry>
-    <title>Springboot整合Swagger2</title>
-    <link href="https://pengdanhua.github.io/post/279220d3.html"/>
-    <id>https://pengdanhua.github.io/post/279220d3.html</id>
-    <published>2024-05-30T01:10:36.499Z</published>
-    <updated>2022-11-27T09:16:41.522Z</updated>
+    <title>Node 第 5 天笔记</title>
+    <link href="https://smanman.github.io/post/5f41c05f.html"/>
+    <id>https://smanman.github.io/post/5f41c05f.html</id>
+    <published>2021-11-19T14:41:00.000Z</published>
+    <updated>2022-11-27T09:16:38.907Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;整合-Swagger2&quot;&gt;&lt;a href=&quot;#整合-Swagger2&quot; class=&quot;headerlink&quot; title=&quot;整合 Swagger2&quot;&gt;&lt;/a&gt;整合 Swagger2&lt;/h3&gt;&lt;h4 id=&quot;Swagger2简介&quot;&gt;&lt;a</summary>
+    <summary type="html">&lt;h2 id=&quot;Node-第-5-天&quot;&gt;&lt;a href=&quot;#Node-第-5-天&quot; class=&quot;headerlink&quot; title=&quot;Node 第 5 天&quot;&gt;&lt;/a&gt;Node 第 5 天&lt;/h2&gt;&lt;h3 id=&quot;1-学习目标&quot;&gt;&lt;a href=&quot;#1-学习目标&quot;</summary>
         
       
     
     
     
-    <category term="java学习" scheme="https://pengdanhua.github.io/categories/java%E5%AD%A6%E4%B9%A0/"/>
+    <category term="前端" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="Springboot" scheme="https://pengdanhua.github.io/categories/java%E5%AD%A6%E4%B9%A0/Springboot/"/>
+    <category term="Node" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/Node/"/>
     
     
-    <category term="Springboot" scheme="https://pengdanhua.github.io/tags/Springboot/"/>
+    <category term="前端" scheme="https://smanman.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="Node" scheme="https://smanman.github.io/tags/Node/"/>
     
   </entry>
   
   <entry>
-    <title>Springboot整合Redis</title>
-    <link href="https://pengdanhua.github.io/post/c67fec4a.html"/>
-    <id>https://pengdanhua.github.io/post/c67fec4a.html</id>
-    <published>2024-05-30T01:10:36.498Z</published>
-    <updated>2022-11-27T09:16:41.483Z</updated>
+    <title>Node 第 4 天笔记</title>
+    <link href="https://smanman.github.io/post/9ecf1f9f.html"/>
+    <id>https://smanman.github.io/post/9ecf1f9f.html</id>
+    <published>2021-11-19T14:40:00.000Z</published>
+    <updated>2022-11-27T09:16:38.867Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;整合Redis&quot;&gt;&lt;a href=&quot;#整合Redis&quot; class=&quot;headerlink&quot; title=&quot;整合Redis&quot;&gt;&lt;/a&gt;整合Redis&lt;/h3&gt;&lt;p&gt; 经过 Spring Boot 的整合封装与自动化配置，在 Spring Boot</summary>
+    <summary type="html">&lt;h2 id=&quot;Node-第-4-天&quot;&gt;&lt;a href=&quot;#Node-第-4-天&quot; class=&quot;headerlink&quot; title=&quot;Node 第 4 天&quot;&gt;&lt;/a&gt;Node 第 4 天&lt;/h2&gt;&lt;h3 id=&quot;1-学习目标&quot;&gt;&lt;a href=&quot;#1-学习目标&quot;</summary>
         
       
     
     
     
-    <category term="java学习" scheme="https://pengdanhua.github.io/categories/java%E5%AD%A6%E4%B9%A0/"/>
+    <category term="前端" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="Springboot" scheme="https://pengdanhua.github.io/categories/java%E5%AD%A6%E4%B9%A0/Springboot/"/>
+    <category term="Node" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/Node/"/>
     
     
-    <category term="Springboot" scheme="https://pengdanhua.github.io/tags/Springboot/"/>
+    <category term="前端" scheme="https://smanman.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="Node" scheme="https://smanman.github.io/tags/Node/"/>
     
   </entry>
   
   <entry>
-    <title>Springboot整合Mybatis</title>
-    <link href="https://pengdanhua.github.io/post/35f9c839.html"/>
-    <id>https://pengdanhua.github.io/post/35f9c839.html</id>
-    <published>2024-05-30T01:10:36.497Z</published>
-    <updated>2022-02-01T13:21:33.629Z</updated>
+    <title>快来地学习canvas吧</title>
+    <link href="https://smanman.github.io/post/40cf0c06.html"/>
+    <id>https://smanman.github.io/post/40cf0c06.html</id>
+    <published>2021-11-19T14:39:00.000Z</published>
+    <updated>2022-11-27T09:16:30.311Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;整合-MyBatis&quot;&gt;&lt;a href=&quot;#整合-MyBatis&quot; class=&quot;headerlink&quot; title=&quot;整合 MyBatis&quot;&gt;&lt;/a&gt;整合 MyBatis&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;Spring Boot 中最简单的数据持久化方案</summary>
+    <summary type="html">&lt;h1 id=&quot;Canvas概述&quot;&gt;&lt;a href=&quot;#Canvas概述&quot; class=&quot;headerlink&quot; title=&quot;Canvas概述&quot;&gt;&lt;/a&gt;Canvas概述&lt;/h1&gt;&lt;p&gt;&lt;code&gt;&amp;lt;canvas&amp;gt; &lt;/code&gt;是 HTML5</summary>
         
       
     
     
     
-    <category term="java学习" scheme="https://pengdanhua.github.io/categories/java%E5%AD%A6%E4%B9%A0/"/>
+    <category term="前端" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="Springboot" scheme="https://pengdanhua.github.io/categories/java%E5%AD%A6%E4%B9%A0/Springboot/"/>
+    <category term="canvas" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/canvas/"/>
     
     
-    <category term="Springboot" scheme="https://pengdanhua.github.io/tags/Springboot/"/>
+    <category term="前端" scheme="https://smanman.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="canvas" scheme="https://smanman.github.io/tags/canvas/"/>
     
   </entry>
   
   <entry>
-    <title>Springboot整合JPA</title>
-    <link href="https://pengdanhua.github.io/post/770d4cb8.html"/>
-    <id>https://pengdanhua.github.io/post/770d4cb8.html</id>
-    <published>2024-05-30T01:10:36.496Z</published>
-    <updated>2022-11-27T09:16:41.400Z</updated>
+    <title>Gulp--基于流的自动化构建工具</title>
+    <link href="https://smanman.github.io/post/89c27a45.html"/>
+    <id>https://smanman.github.io/post/89c27a45.html</id>
+    <published>2021-11-19T14:39:00.000Z</published>
+    <updated>2022-05-21T12:49:33.712Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;JPA-简介&quot;&gt;&lt;a href=&quot;#JPA-简介&quot; class=&quot;headerlink&quot; title=&quot;JPA 简介&quot;&gt;&lt;/a&gt;JPA 简介&lt;/h3&gt;&lt;h4 id=&quot;JPA-是什么&quot;&gt;&lt;a href=&quot;#JPA-是什么&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h3 id=&quot;Gulp–基于流的自动化构建工具&quot;&gt;&lt;a href=&quot;#Gulp–基于流的自动化构建工具&quot; class=&quot;headerlink&quot; title=&quot;Gulp–基于流的自动化构建工具&quot;&gt;&lt;/a&gt;Gulp–基于流的自动化构建工具&lt;/h3&gt;&lt;h4 id=&quot;基本概念&quot;&gt;&lt;a</summary>
         
       
     
     
     
-    <category term="java学习" scheme="https://pengdanhua.github.io/categories/java%E5%AD%A6%E4%B9%A0/"/>
+    <category term="前端" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="Springboot" scheme="https://pengdanhua.github.io/categories/java%E5%AD%A6%E4%B9%A0/Springboot/"/>
+    <category term="构建部署" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/%E6%9E%84%E5%BB%BA%E9%83%A8%E7%BD%B2/"/>
     
     
-    <category term="Springboot" scheme="https://pengdanhua.github.io/tags/Springboot/"/>
+    <category term="前端" scheme="https://smanman.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="构建部署" scheme="https://smanman.github.io/tags/%E6%9E%84%E5%BB%BA%E9%83%A8%E7%BD%B2/"/>
     
   </entry>
   
   <entry>
-    <title>Springboot整合MongoDB</title>
-    <link href="https://pengdanhua.github.io/post/616a8d26.html"/>
-    <id>https://pengdanhua.github.io/post/616a8d26.html</id>
-    <published>2024-05-30T01:10:36.496Z</published>
-    <updated>2022-11-27T09:16:41.442Z</updated>
+    <title>PM2一键部署</title>
+    <link href="https://smanman.github.io/post/3d42c651.html"/>
+    <id>https://smanman.github.io/post/3d42c651.html</id>
+    <published>2021-11-19T14:39:00.000Z</published>
+    <updated>2021-11-20T14:31:03.568Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;MongoDB简介&quot;&gt;&lt;a href=&quot;#MongoDB简介&quot; class=&quot;headerlink&quot; title=&quot;MongoDB简介&quot;&gt;&lt;/a&gt;MongoDB简介&lt;/h3&gt;&lt;p&gt;</summary>
+    <summary type="html">&lt;h1 id=&quot;PM2一键部署&quot;&gt;&lt;a href=&quot;#PM2一键部署&quot; class=&quot;headerlink&quot; title=&quot;PM2一键部署&quot;&gt;&lt;/a&gt;PM2一键部署&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
         
       
     
     
     
-    <category term="java学习" scheme="https://pengdanhua.github.io/categories/java%E5%AD%A6%E4%B9%A0/"/>
+    <category term="前端" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="Springboot" scheme="https://pengdanhua.github.io/categories/java%E5%AD%A6%E4%B9%A0/Springboot/"/>
+    <category term="构建部署" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/%E6%9E%84%E5%BB%BA%E9%83%A8%E7%BD%B2/"/>
     
     
-    <category term="Springboot" scheme="https://pengdanhua.github.io/tags/Springboot/"/>
+    <category term="前端" scheme="https://smanman.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="构建部署" scheme="https://smanman.github.io/tags/%E6%9E%84%E5%BB%BA%E9%83%A8%E7%BD%B2/"/>
     
   </entry>
   
   <entry>
-    <title>Springboot整合JDBCTemplate</title>
-    <link href="https://pengdanhua.github.io/post/5446c04.html"/>
-    <id>https://pengdanhua.github.io/post/5446c04.html</id>
-    <published>2024-05-30T01:10:36.495Z</published>
-    <updated>2022-02-01T13:21:33.628Z</updated>
+    <title>H5项目</title>
+    <link href="https://smanman.github.io/post/76016aa3.html"/>
+    <id>https://smanman.github.io/post/76016aa3.html</id>
+    <published>2021-11-19T14:39:00.000Z</published>
+    <updated>2022-11-27T09:16:31.455Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;整合-JdbcTemplate&quot;&gt;&lt;a href=&quot;#整合-JdbcTemplate&quot; class=&quot;headerlink&quot; title=&quot;整合 JdbcTemplate&quot;&gt;&lt;/a&gt;整合 JdbcTemplate&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;在</summary>
+    <summary type="html">&lt;hr&gt;
+&lt;p&gt;学习目标:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;能够说出fullpage插件的使用基本思路&lt;/li&gt;
+&lt;li&gt;能写出购物案例屏幕滚动效果及其侧边栏制作&lt;/li&gt;
+&lt;li&gt;能写出第一屏布局及其动画效果&lt;/li&gt;
+&lt;li&gt;能写出第二屏布局及其动画效果&lt;/li&gt;
+&lt;li&gt;能写出第</summary>
         
       
     
     
     
-    <category term="java学习" scheme="https://pengdanhua.github.io/categories/java%E5%AD%A6%E4%B9%A0/"/>
+    <category term="前端" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="Springboot" scheme="https://pengdanhua.github.io/categories/java%E5%AD%A6%E4%B9%A0/Springboot/"/>
+    <category term="H5" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/H5/"/>
     
     
-    <category term="Springboot" scheme="https://pengdanhua.github.io/tags/Springboot/"/>
+    <category term="前端" scheme="https://smanman.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="H5" scheme="https://smanman.github.io/tags/H5/"/>
     
   </entry>
   
   <entry>
-    <title>Springboot整合JAX-RS简介</title>
-    <link href="https://pengdanhua.github.io/post/248bc72d.html"/>
-    <id>https://pengdanhua.github.io/post/248bc72d.html</id>
-    <published>2024-05-30T01:10:36.494Z</published>
-    <updated>2022-02-01T13:21:33.624Z</updated>
+    <title>H5新API</title>
+    <link href="https://smanman.github.io/post/22cbabe6.html"/>
+    <id>https://smanman.github.io/post/22cbabe6.html</id>
+    <published>2021-11-19T14:39:00.000Z</published>
+    <updated>2021-11-20T14:16:53.382Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;JAX-RS简介&quot;&gt;&lt;a href=&quot;#JAX-RS简介&quot; class=&quot;headerlink&quot; title=&quot;JAX-RS简介&quot;&gt;&lt;/a&gt;JAX-RS简介&lt;/h3&gt;&lt;h4 id=&quot;什么是JAX-RS&quot;&gt;&lt;a href=&quot;#什么是JAX-RS&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;1-网络状态&quot;&gt;&lt;a href=&quot;#1-网络状态&quot; class=&quot;headerlink&quot; title=&quot;1 网络状态&quot;&gt;&lt;/a&gt;1 网络状态&lt;/h2&gt;&lt;p&gt;我们可以通过window.navigator.onLine来检测，用户当前的网络状况，返回一个布尔值，</summary>
         
       
     
     
     
-    <category term="java学习" scheme="https://pengdanhua.github.io/categories/java%E5%AD%A6%E4%B9%A0/"/>
+    <category term="前端" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="Springboot" scheme="https://pengdanhua.github.io/categories/java%E5%AD%A6%E4%B9%A0/Springboot/"/>
+    <category term="H5" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/H5/"/>
     
     
-    <category term="Springboot" scheme="https://pengdanhua.github.io/tags/Springboot/"/>
+    <category term="前端" scheme="https://smanman.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="H5" scheme="https://smanman.github.io/tags/H5/"/>
     
   </entry>
   
   <entry>
-    <title>Springboot整合druid</title>
-    <link href="https://pengdanhua.github.io/post/bbe782ca.html"/>
-    <id>https://pengdanhua.github.io/post/bbe782ca.html</id>
-    <published>2024-05-30T01:10:36.493Z</published>
-    <updated>2022-11-27T09:16:41.356Z</updated>
+    <title>Node 第 3 天笔记</title>
+    <link href="https://smanman.github.io/post/b7f40a1c.html"/>
+    <id>https://smanman.github.io/post/b7f40a1c.html</id>
+    <published>2021-11-19T14:39:00.000Z</published>
+    <updated>2022-11-27T09:16:38.827Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;springboot整合druid&quot;&gt;&lt;a href=&quot;#springboot整合druid&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;Node-第-3-天&quot;&gt;&lt;a href=&quot;#Node-第-3-天&quot; class=&quot;headerlink&quot; title=&quot;Node 第 3 天&quot;&gt;&lt;/a&gt;Node 第 3 天&lt;/h2&gt;&lt;h3 id=&quot;1-学习目标&quot;&gt;&lt;a href=&quot;#1-学习目标&quot;</summary>
         
       
     
     
     
-    <category term="java学习" scheme="https://pengdanhua.github.io/categories/java%E5%AD%A6%E4%B9%A0/"/>
+    <category term="前端" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="Springboot" scheme="https://pengdanhua.github.io/categories/java%E5%AD%A6%E4%B9%A0/Springboot/"/>
+    <category term="Node" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/Node/"/>
     
     
-    <category term="Springboot" scheme="https://pengdanhua.github.io/tags/Springboot/"/>
+    <category term="前端" scheme="https://smanman.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="Node" scheme="https://smanman.github.io/tags/Node/"/>
     
   </entry>
   
   <entry>
-    <title>Springboot工程搭建</title>
-    <link href="https://pengdanhua.github.io/post/a68b86fe.html"/>
-    <id>https://pengdanhua.github.io/post/a68b86fe.html</id>
-    <published>2024-05-30T01:10:36.492Z</published>
-    <updated>2022-11-27T09:16:41.308Z</updated>
+    <title>Node 第 2 天笔记</title>
+    <link href="https://smanman.github.io/post/767ad5dc.html"/>
+    <id>https://smanman.github.io/post/767ad5dc.html</id>
+    <published>2021-11-19T14:39:00.000Z</published>
+    <updated>2022-11-27T09:16:38.787Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;使用idea搭建SpringBoot&quot;&gt;&lt;a href=&quot;#使用idea搭建SpringBoot&quot; class=&quot;headerlink&quot; title=&quot;使用idea搭建SpringBoot&quot;&gt;&lt;/a&gt;使用idea搭建SpringBoot&lt;/h3&gt;&lt;h4</summary>
+    <summary type="html">&lt;h2 id=&quot;Node-第-2-天&quot;&gt;&lt;a href=&quot;#Node-第-2-天&quot; class=&quot;headerlink&quot; title=&quot;Node 第 2 天&quot;&gt;&lt;/a&gt;Node 第 2 天&lt;/h2&gt;&lt;h3 id=&quot;1-学习目标&quot;&gt;&lt;a href=&quot;#1-学习目标&quot;</summary>
         
       
     
     
     
-    <category term="java学习" scheme="https://pengdanhua.github.io/categories/java%E5%AD%A6%E4%B9%A0/"/>
+    <category term="前端" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="Springboot" scheme="https://pengdanhua.github.io/categories/java%E5%AD%A6%E4%B9%A0/Springboot/"/>
+    <category term="Node" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/Node/"/>
     
     
-    <category term="Springboot" scheme="https://pengdanhua.github.io/tags/Springboot/"/>
+    <category term="前端" scheme="https://smanman.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="Node" scheme="https://smanman.github.io/tags/Node/"/>
     
   </entry>
   
   <entry>
-    <title>Springboot Actuator</title>
-    <link href="https://pengdanhua.github.io/post/461731c.html"/>
-    <id>https://pengdanhua.github.io/post/461731c.html</id>
-    <published>2024-05-30T01:10:36.485Z</published>
-    <updated>2022-11-27T09:16:40.858Z</updated>
+    <title>Node.js事件循环与多线程</title>
+    <link href="https://smanman.github.io/post/9fe5cbfb.html"/>
+    <id>https://smanman.github.io/post/9fe5cbfb.html</id>
+    <published>2021-11-19T14:39:00.000Z</published>
+    <updated>2022-11-27T09:16:39.137Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;什么是Actuator&quot;&gt;&lt;a href=&quot;#什么是Actuator&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;nodejs事件循环与多进程&quot;&gt;&lt;a href=&quot;#nodejs事件循环与多进程&quot; class=&quot;headerlink&quot; title=&quot;nodejs事件循环与多进程&quot;&gt;&lt;/a&gt;nodejs事件循环与多进程&lt;/h1&gt;&lt;h2 id=&quot;why&quot;&gt;&lt;a</summary>
         
       
     
     
     
-    <category term="java学习" scheme="https://pengdanhua.github.io/categories/java%E5%AD%A6%E4%B9%A0/"/>
+    <category term="前端" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="Springboot" scheme="https://pengdanhua.github.io/categories/java%E5%AD%A6%E4%B9%A0/Springboot/"/>
+    <category term="Node.js进阶" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/Node-js%E8%BF%9B%E9%98%B6/"/>
     
     
-    <category term="Springboot" scheme="https://pengdanhua.github.io/tags/Springboot/"/>
+    <category term="前端" scheme="https://smanman.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="Node.js进阶" scheme="https://smanman.github.io/tags/Node-js%E8%BF%9B%E9%98%B6/"/>
     
   </entry>
   
   <entry>
-    <title>Redis事件驱动框架和执行模型模块</title>
-    <link href="https://pengdanhua.github.io/post/f596c2de.html"/>
-    <id>https://pengdanhua.github.io/post/f596c2de.html</id>
-    <published>2024-05-30T01:10:36.463Z</published>
-    <updated>2022-11-27T09:16:43.843Z</updated>
+    <title>Node.js 网络通信</title>
+    <link href="https://smanman.github.io/post/12fd1250.html"/>
+    <id>https://smanman.github.io/post/12fd1250.html</id>
+    <published>2021-11-19T14:39:00.000Z</published>
+    <updated>2022-11-27T09:16:39.338Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;Redisserver启动后会做哪些操作&quot;&gt;&lt;a href=&quot;#Redisserver启动后会做哪些操作&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;Node-js-网络通信&quot;&gt;&lt;a href=&quot;#Node-js-网络通信&quot; class=&quot;headerlink&quot; title=&quot;Node.js 网络通信&quot;&gt;&lt;/a&gt;Node.js 网络通信&lt;/h1&gt;&lt;p&gt;Node</summary>
         
       
     
     
     
-    <category term="Redis源码" scheme="https://pengdanhua.github.io/categories/Redis%E6%BA%90%E7%A0%81/"/>
+    <category term="前端" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="Node.js进阶" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/Node-js%E8%BF%9B%E9%98%B6/"/>
     
     
-    <category term="Redis源码" scheme="https://pengdanhua.github.io/tags/Redis%E6%BA%90%E7%A0%81/"/>
+    <category term="前端" scheme="https://smanman.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="c源码" scheme="https://pengdanhua.github.io/tags/c%E6%BA%90%E7%A0%81/"/>
+    <category term="Node.js进阶" scheme="https://smanman.github.io/tags/Node-js%E8%BF%9B%E9%98%B6/"/>
     
   </entry>
   
   <entry>
-    <title>Redis源码之数据结构</title>
-    <link href="https://pengdanhua.github.io/post/6364a1dc.html"/>
-    <id>https://pengdanhua.github.io/post/6364a1dc.html</id>
-    <published>2024-05-30T01:10:36.460Z</published>
-    <updated>2022-11-27T09:16:40.033Z</updated>
+    <title>Vue后台电商管理项目</title>
+    <link href="https://smanman.github.io/post/1b85fbbb.html"/>
+    <id>https://smanman.github.io/post/1b85fbbb.html</id>
+    <published>2021-11-19T14:39:00.000Z</published>
+    <updated>2022-11-27T09:16:42.907Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;Redis字符串的实现&quot;&gt;&lt;a href=&quot;#Redis字符串的实现&quot; class=&quot;headerlink&quot; title=&quot;Redis字符串的实现&quot;&gt;&lt;/a&gt;Redis字符串的实现&lt;/h1&gt;&lt;h2 id=&quot;实现字符串的要求&quot;&gt;&lt;a</summary>
+    <summary type="html">&lt;h1 id=&quot;一、项目简介&quot;&gt;&lt;a href=&quot;#一、项目简介&quot; class=&quot;headerlink&quot; title=&quot;一、项目简介&quot;&gt;&lt;/a&gt;一、项目简介&lt;/h1&gt;&lt;h2 id=&quot;1、后台管理系统的功能划分&quot;&gt;&lt;a href=&quot;#1、后台管理系统的功能划分&quot;</summary>
         
       
     
     
     
-    <category term="Redis源码" scheme="https://pengdanhua.github.io/categories/Redis%E6%BA%90%E7%A0%81/"/>
+    <category term="前端" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="Vue后台电商管理项目" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/Vue%E5%90%8E%E5%8F%B0%E7%94%B5%E5%95%86%E7%AE%A1%E7%90%86%E9%A1%B9%E7%9B%AE/"/>
     
     
-    <category term="Redis源码" scheme="https://pengdanhua.github.io/tags/Redis%E6%BA%90%E7%A0%81/"/>
+    <category term="前端" scheme="https://smanman.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="c源码" scheme="https://pengdanhua.github.io/tags/c%E6%BA%90%E7%A0%81/"/>
+    <category term="Vue后台电商管理项目" scheme="https://smanman.github.io/tags/Vue%E5%90%8E%E5%8F%B0%E7%94%B5%E5%95%86%E7%AE%A1%E7%90%86%E9%A1%B9%E7%9B%AE/"/>
     
   </entry>
   
   <entry>
-    <title>Redis源码之导读</title>
-    <link href="https://pengdanhua.github.io/post/5c43006d.html"/>
-    <id>https://pengdanhua.github.io/post/5c43006d.html</id>
-    <published>2024-05-30T01:10:36.459Z</published>
-    <updated>2022-11-27T09:16:40.015Z</updated>
+    <title>SASS简介</title>
+    <link href="https://smanman.github.io/post/4b6bac27.html"/>
+    <id>https://smanman.github.io/post/4b6bac27.html</id>
+    <published>2021-11-19T14:39:00.000Z</published>
+    <updated>2021-11-20T14:49:39.042Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;导读&quot;&gt;&lt;a href=&quot;#导读&quot; class=&quot;headerlink&quot; title=&quot;导读&quot;&gt;&lt;/a&gt;导读&lt;/h1&gt;&lt;h2 id=&quot;Redis源码的整体架构&quot;&gt;&lt;a href=&quot;#Redis源码的整体架构&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;SASS：&quot;&gt;&lt;a href=&quot;#SASS：&quot; class=&quot;headerlink&quot;</summary>
         
       
     
     
     
-    <category term="Redis源码" scheme="https://pengdanhua.github.io/categories/Redis%E6%BA%90%E7%A0%81/"/>
+    <category term="前端" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="SASS" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/SASS/"/>
     
     
-    <category term="Redis源码" scheme="https://pengdanhua.github.io/tags/Redis%E6%BA%90%E7%A0%81/"/>
+    <category term="前端" scheme="https://smanman.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="c源码" scheme="https://pengdanhua.github.io/tags/c%E6%BA%90%E7%A0%81/"/>
+    <category term="SASS" scheme="https://smanman.github.io/tags/SASS/"/>
     
   </entry>
   
   <entry>
-    <title>MyBatis启动流程(下)</title>
-    <link href="https://pengdanhua.github.io/post/f121bfc7.html"/>
-    <id>https://pengdanhua.github.io/post/f121bfc7.html</id>
-    <published>2024-05-30T01:10:36.379Z</published>
-    <updated>2022-11-27T09:16:37.657Z</updated>
+    <title>SASS语法</title>
+    <link href="https://smanman.github.io/post/e45723a4.html"/>
+    <id>https://smanman.github.io/post/e45723a4.html</id>
+    <published>2021-11-19T14:39:00.000Z</published>
+    <updated>2022-11-27T09:16:40.374Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;Mapper-xml-映射文件解析全流程&quot;&gt;&lt;a href=&quot;#Mapper-xml-映射文件解析全流程&quot; class=&quot;headerlink&quot; title=&quot;Mapper.xml 映射文件解析全流程&quot;&gt;&lt;/a&gt;Mapper.xml</summary>
+    <summary type="html">&lt;h1 id=&quot;1-使用变量&quot;&gt;&lt;a href=&quot;#1-使用变量&quot; class=&quot;headerlink&quot; title=&quot;1. 使用变量&quot;&gt;&lt;/a&gt;1.</summary>
         
       
     
     
     
-    <category term="MyBatis源码" scheme="https://pengdanhua.github.io/categories/MyBatis%E6%BA%90%E7%A0%81/"/>
+    <category term="前端" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="SASS" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/SASS/"/>
     
     
-    <category term="源码" scheme="https://pengdanhua.github.io/tags/%E6%BA%90%E7%A0%81/"/>
+    <category term="前端" scheme="https://smanman.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="MyBatis" scheme="https://pengdanhua.github.io/tags/MyBatis/"/>
+    <category term="SASS" scheme="https://smanman.github.io/tags/SASS/"/>
     
   </entry>
   
   <entry>
-    <title>MyBatis启动流程(上)</title>
-    <link href="https://pengdanhua.github.io/post/e83a8e86.html"/>
-    <id>https://pengdanhua.github.io/post/e83a8e86.html</id>
-    <published>2024-05-30T01:10:36.378Z</published>
-    <updated>2022-11-27T09:16:37.600Z</updated>
+    <title>Next.js服务器端渲染</title>
+    <link href="https://smanman.github.io/post/4cb17d62.html"/>
+    <id>https://smanman.github.io/post/4cb17d62.html</id>
+    <published>2021-11-19T14:39:00.000Z</published>
+    <updated>2021-11-20T14:15:18.440Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;MyBatis 有两方面的 XML 配置，&lt;strong&gt;一个是 mybatis-config.xml 配置文件中的整体配置，另一个是 Mapper.xml 配置文件中的 SQL 语句&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;在初始化的过程中，MyBatis 会读取</summary>
+    <summary type="html">&lt;h2 id=&quot;Next-js服务器端渲染&quot;&gt;&lt;a href=&quot;#Next-js服务器端渲染&quot; class=&quot;headerlink&quot;</summary>
         
       
     
     
     
-    <category term="MyBatis源码" scheme="https://pengdanhua.github.io/categories/MyBatis%E6%BA%90%E7%A0%81/"/>
+    <category term="前端" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="服务端渲染" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93/"/>
     
     
-    <category term="源码" scheme="https://pengdanhua.github.io/tags/%E6%BA%90%E7%A0%81/"/>
+    <category term="前端" scheme="https://smanman.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="MyBatis" scheme="https://pengdanhua.github.io/tags/MyBatis/"/>
+    <category term="服务端渲染" scheme="https://smanman.github.io/tags/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93/"/>
     
   </entry>
   
   <entry>
-    <title>MyBatis-缓存模块</title>
-    <link href="https://pengdanhua.github.io/post/92521f4c.html"/>
-    <id>https://pengdanhua.github.io/post/92521f4c.html</id>
-    <published>2024-05-30T01:10:36.378Z</published>
-    <updated>2022-11-27T09:16:37.529Z</updated>
+    <title>Nuxt.js服务器端渲染</title>
+    <link href="https://smanman.github.io/post/33da025f.html"/>
+    <id>https://smanman.github.io/post/33da025f.html</id>
+    <published>2021-11-19T14:39:00.000Z</published>
+    <updated>2021-11-29T01:39:38.861Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://note-1259153703.cos.ap-nanjing.myqcloud.com/images/202204141017603.png&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;mybatis缓存&quot;&gt;&lt;a</summary>
+    <summary type="html">&lt;h2 id=&quot;1-Nuxt-js服务器端渲染&quot;&gt;&lt;a href=&quot;#1-Nuxt-js服务器端渲染&quot; class=&quot;headerlink&quot; title=&quot;1. Nuxt.js服务器端渲染&quot;&gt;&lt;/a&gt;1.</summary>
         
       
     
     
     
-    <category term="MyBatis源码" scheme="https://pengdanhua.github.io/categories/MyBatis%E6%BA%90%E7%A0%81/"/>
+    <category term="前端" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="服务端渲染" scheme="https://smanman.github.io/categories/%E5%89%8D%E7%AB%AF/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93/"/>
     
     
-    <category term="源码" scheme="https://pengdanhua.github.io/tags/%E6%BA%90%E7%A0%81/"/>
+    <category term="前端" scheme="https://smanman.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="MyBatis" scheme="https://pengdanhua.github.io/tags/MyBatis/"/>
+    <category term="服务端渲染" scheme="https://smanman.github.io/tags/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93/"/>
     
   </entry>
   
